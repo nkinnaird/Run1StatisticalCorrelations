@@ -2,5 +2,52 @@
 
 \graphicspath{{Body/Figures/}}
 
-\clearpage
 \section{Introduction}
+
+The \R1 \wa analysis effort consists of six separate groups conducting a total of eleven different analyses. 
+
+
+Each analyzer and analysis has different parameters based on the choices and constraints of the analysis types and reconstructions used. This information is given in \tabref{tab:analyzerParameters}.
+
+
+
+\begin{landscape}
+\begin{table}
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{1\linewidth}{@{\extracolsep{\fill}}lcccccc}
+  \hline
+    \multicolumn{7}{c}{\textbf{Analyzer Parameters}} \\
+  \hline\hline
+    Analysis Effort & \thead{Cornell} & \thead{U. Washington} & \thead{Europa} & \thead{Shanghai Jiao Tong U.} & \thead{Boston U.} & \thead{U. Kentucky} \\
+    Abbreviation & CU & UW & EU & SJTU & BU & UK \\
+    Lead Analyzer & D. Sweigart & A. Fienberg & M. Sorbara & B. Li & N. Kinnaird & T. Gorringe \\
+  \hline 
+  	Parameter \\
+  \hline
+  	Analysis Type (TARQ) & TA & TA & TA & TA & TR & Q \\
+  	Reconstruction & East & West & West & West & West & Q \\
+  	Bin Width (ns) & 149.2 & 149.19 & 149.19 & 149.2 & 149.2 & 150 \\
+  	Bin Edge (ns) & 0 & 53.62 & 0 & 0 & 0 & 0 \\
+  	T-Method Threshold (\MeV) & 1700-- & 1700--6000 & 1680--7020 & 1700--9300 & 1700-- & - \\ 
+  	A-Method Threshold (\MeV) & 1000--3000 & 1000--3020 & 1080--3020 & 1000--3100 & - & - \\ 
+  	R-Method Threshold (\MeV) & - & - & - & - & 1700-- & - \\ 
+  	Q-Method Threshold (\MeV) & - & - & - & - & - & 300-- \\ 
+  	Fit Start Time ($\mu$s) & 30.2876 & 30.19 & 30.1364 & 30.2876 & 30.2876 & 30 \\ 
+  	Fit Start Time (EndGame) ($\mu$s) & 49.982 & 49.88308 & 49.8295 & 49.982 & 49.982 & 49.9762 \\ 
+  	Fit End Time ($\mu$s) & 649.9152 & 649.92526 & 650.021 & 671.4 & 650.0644 & 215.5 \\ 
+  \hline
+\end{tabularx}
+\caption[]{Caption here - Parameters provide through private communication ... also theses ...}
+\label{tab:analyzerParameters}
+\end{table}
+\end{landscape}
+
+
+
+
+
+
+\cite{AlexCombinationNote}
+\cite{JoshEvW}
+\cite{Cowan}
