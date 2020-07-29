@@ -17,6 +17,9 @@ with the time-dilated muon lifetime \taumu equal to \ns{64440} and \gmtwo freque
 where \R was set to 0. 
 
 
+\subsection{Function Input}
+
+
 The energy dependent terms in \equref{eq:2dfunc} were determined from energy-binned fits to the data provided by D. Sweigart for ReconEast and M. Sorbara for ReconWest, for each of the four datasets in \Rone. \figref{fig:energyBinFits} show the respective histograms for the 9d dataset, where it can be seen that energy bin fits to the two reconstructions produce very similar histograms. The \RE energy bin fits ranged from \SIrange{300}{3100}{\MeV} in bins of \SI{50}{\MeV} for a total of 56 energy bins, while the \RW energy bin fits ranged from \SIrange{300}{3060}{\MeV} in bins of \SI{60}{\MeV} for a total of 46 energy bins. Two \texttt{TF2}s were constructed using either the \RE or \RW histograms as input. The number of Y points in the functions were set as the number of bins in the respective histograms, and the function was defined such that the energy binned histograms would be linearly interpolated between the values at the bin centers. The number of X points in the functions were defined such that the function ranged from \SIrange{0}{699971.8}{ns} in steps of $149.2/2 = 74.6 \text{ns}$ for a total of 9383 points. This `point-width' was chosen for a couple of reasons. The first is that the maximum number of allowed X or Y points in a \texttt{TF2} is 10000, and this point-width results in a number of points close to but not above that value. The second is that it is either exactly or very close to a multiple of the bin widths chosen by the analyzers. It was found that using the maximum number of points such that the point width was \ns{70} (for a range up to \ns{700000}) resulted in aliasing frequencies appearing in the generated data. With a point-width of \ns{74.6} these aliasing frequencies disappeared entirely except in some Q-Method fits, as evidenced by the non-flat p-value distribution in \figref{}. In order to remove this issue entirely a different implementation beyond \texttt{TF2} would be needed. The 2D function parameters are summarized in \tabref{tab:2dfunctionParameters}.
 
 
@@ -69,29 +72,57 @@ The energy dependent terms in \equref{eq:2dfunc} were determined from energy-bin
 
 
 
+\subsection{\RE vs \RW}
+
+The \texttt{TF2}s take input from either \RE or \RW energy bin functions as described previously. In order to properly estimate correlation coefficients including the effects of the reconstructions, a comparison between \RE and \RW is necessary. J. LaBounty studied the different reconstructions of clusters in detail \cite{JoshEvW}. In doing so he determined that the cluster times between the two reconstructions were the same to high precision, but that there were differences in the reconstructed cluster energies. He took \RE and \RW analyses, isolated produced clusters from the same waveforms, and plotted the energies against each other. The calorimeter sum of this comparison for the 9d dataset is shown in \figref{fig:EvWenergies}. As shown most hits lie along the unit slope line. Some hits off in different bands either due to reconstruction differences or some individual crystals which had poor relative energy calibration. Taking projections of this distribution, energies can be converted between \RE and \RW by sampling those projections. An example is given in \figref{fig:EvWprojection}.
+
+
+A couple of points should be mentioned. First is that the bin width used by J. LaBounty was \SI{10}{\MeV}, certainly discrete enough for the purposed of this Monte Carlo and also finer than the energy bin widths used in the generation of the \texttt{TF2}s. Second is that the comparison is built upon clusters before they have been corrected for pileup, hence the counts out at energies beyond the magic momentum of \SI{3.094}{\GeV} plus the energy resolution. It is expected that this should be fine to use since pileup is a minimal effect and should effect \RE and \RW more or less equally. Third is that this comparison was built upon D. Sweigart's and A. Fienberg's analyses. D. Sweigart is the only \RE analyzer, while A. Fienberg was one of several \RW analyzers. Since A. Fienberg uses different clustering parameters than the rest of the \RW analyzers, (\texttt{timeCutoffLow = 2, timeCutoffHigh = 3} vs \texttt{timeCutoffLow = 3, timeCutoffHigh = 5}), the comparison isn't apples to apples. It is mentioned that for the most technically correct results the \RE vs \RW comparison should be done individually for all analyzers, though the final results are not expected to change significantly.
 
 
 
 \begin{figure}[]
 \centering
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{ReconEastvWest_Energies}
-        \caption{}
-    \end{subfigure}
-    \hspace{1mm}
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{ReconEastvWest_Projection}
-        \caption{}
-    \end{subfigure}
-\caption[]{Caption}
-\label{fig:}
+\includegraphics[width=\textwidth]{ReconEastvWest_Energies}
+\caption{Log-scale plot of \RE energies vs \RW energies for the same produced clusters for the 9d dataset. The plot shows that the large majority of hits form a Gaussian around the unit slope line, however there are bands of hits outside this line due to effects such as some individual crystals in some calorimeters with poor energy calibration. This pattern was determined to be stable throughout the fill. \RE vs \RW comparison performed by J. LaBounty \cite{JoshEvW}. }
+\label{fig:EvWenergies}
+\end{figure}
+
+\begin{figure}[]
+\centering
+\includegraphics[width=\textwidth]{ReconEastvWest_Projection}
+\caption{A Y-axis or \RW energy projection for a chosen \RE energy of \SI{2}{\GeV}. The plot is on a log-scale, with a mainly Gaussian structure. Tails and peaks due to the banding structure can be seen however.}
+\label{fig:EvWprojection}
 \end{figure}
 
 
 
 
+\subsection{Event Generation and Randomization}
+
+
+As mentioned previously, events were generated through \texttt{TF2->GetRandom2()} method calls. Many samples of pseudo-data were generated via the same procedure, for each dataset and for the two \texttt{TF2} variants with input from either \RE or \RW. The procedure is as follows:
+\begin{itemize}
+	\item{test}
+\end{itemize}
+
+
+
+First the number of hits was determined such that statistics could be produced such that the error on \R was comparable to the \Rone datasets. These numbers of hits are calculated by \texttt{PoissonD()} method calls on a static number of entries for each dataset, such that each sample has very slightly different amount of entries. The approximate level of stats for the 60h, HK, 9d, and EG datasets are given by \{5.04e9, 7.01e9, 1.08e10, 2.21e10\}, where the numbers were determined empirically. For each hit generated, a time and an energy were generated according to one of the two \texttt{TF2}s described previously, with the input either from \RE or \RW. 
+
+
+
+There was no time randomization ... could be included but would take a lot longer ... mean R value would stay the same with enough seeds though the width would increase a bit - the correlations should be affected practically negliblely 
+
+
+
+
+For the R-Method ... 
+
+
+
+
+In all cases the randomization is performed via ... event randomization, number of events, ratio randomization, EvW randomization
 
 
 
@@ -101,5 +132,16 @@ The energy dependent terms in \equref{eq:2dfunc} were determined from energy-bin
 
 
 
+
+
+
+
+
+
+
+
+-mention number of seeds for the ratio method... cite my thesis to describe how the ratio is constructed?
+-explicitly mention which fit functions are used to fit the data
+-include a plot of one fit of the TARQ methods
 - don't do pileup, the effect should be a lot smaller than the energy threshold changes between analyses after pileup subtraction, it would be a major effort to somehow put in different pileup cases, etc.
 
