@@ -115,16 +115,29 @@ The procedure for the event generation is as follows:
 \end{enumerate}
 
 
-In all instances of the randomiztion, the randomization on the number of events, sampling the \texttt{TF2}s, sampling the \RE vs \RW energy projections, and the ratio randomization, the \ROOT\texttt{TRandomMixMax} class is used. The standard \texttt{TRandom3} class was initially used and found to be inadequate for this high precision statistical study. \texttt{TRandomMixMax} has the advantage of producing proper random numbers with high periodicity, and also being fast enough to produce the high numbers of needed events in a reasonable time frame\footnote{This generator is the default used in Geant4.}\cite{TRandom}.
+In all instances of the randomization, including the randomization on the number of events, sampling the \texttt{TF2}s, sampling the \RE vs \RW energy projections, and the ratio randomization, the \ROOT\texttt{TRandomMixMax} class is used. The standard \texttt{TRandom3} class was initially used and found to be inadequate for this high precision statistical study. \texttt{TRandomMixMax} has the advantage of producing proper random numbers with high periodicity, and also being fast enough to produce the high numbers of needed events in a reasonable time frame\footnote{This generator is the default used in Geant4.}\cite{TRandom}.
+
+
+-talk about submitting jobs to the grid here or elsewhere? 
 
 
 
 \subsection{Fitting the Pseudo-Data}
 
 
+Once the pseudo-data has been generated, the data is fit either with a simple five parameter function in the TAQ-Methods,
+\begin{align}
+    N(t) = N_{0} \cdot e^{-t/\tau_{\mu}} \cdot (1 + A \cos{(\omega_{a}t + \phi})),
+\label{eq:fiveParFit}
+\end{align}
+or a simple three parameter function in the case of the R-Method,
+\begin{align}
+    R(t) =A \cos{(\omega_{a}t + \phi}).
+\label{eq:ratioFit}
+\end{align}
+In both cases the energy dependent pieces from \equref{eq:2dfunc} are gone, and the fitted constants will converge to their integrated values. \figref{fig:sampleFits} shows examples of fits to the four different methods, for the same generated sample. In general the fit parameters are very similar to one another between the different methods, however due to the different analyzer parameters chosen like energy threshold, the fit parameters can be slightly, but significantly, different. \figref{fig:FFTs} shows the FFTs of the fits from \figref{fig:sampleFits}. What can sometimes occur, though isn't shown here, is that aliasing peaks can appear at beat frequencies with \wa, due to differences in the point-width frequency of the input 2D function and the bin width of the histogram. Once the order-1000 grid jobs are submitted and the histograms are returned, all the samples and all the seeds are fit. The fit parameters are stored into \ROOT trees so that the parameters for the different methods and samples can be compared. 
 
--T method was from Aaron, A method from David, R method from me, and Q from Tim
-
+Similarly, measures of the goodness-of-fit are also stored, in order to verify that the pseudo-data is being fit correctly. P value distributions for the four methods for one set of grid jobs is shown in \figref{fig:pValues}. As shown the distributions are flat for the TA-Methods, and are not flat for the RQ-Methods. The Q-Method is understood to be non-flat due to the difference in bin width and point-width mentioned previously, while the origin of the non-flatness of the R-Method is unkwown at this time. \figref{fig:pulls} show the pulls on \R for the different samples in this set of submitted grid jobs. The distributions in general are very close to unit-Gaussians, with some slight deviations in the RQ-Method cases leading to slight pulls on \R. This should have a very minimal effect on the calculated correlation coefficients, but it should be kept in mind.
 
 
 \begin{figure}[]
@@ -132,29 +145,30 @@ In all instances of the randomiztion, the randomization on the number of events,
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{Example_TMethod_Fit}
-        \caption{T}
+        \caption{T-Method}
     \end{subfigure}
     \hspace{1mm}
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{Example_AMethod_Fit}
-        \caption{A}
+        \caption{A-Method}
     \end{subfigure}% %you need this % here to add spacing between subfigures
 
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{Example_RMethod_Fit}
-        \caption{R}
+        \caption{R-Method}
     \end{subfigure}
     \hspace{1mm}
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{Example_QMethod_Fit}
-        \caption{Q}
+        \caption{Q-Method}
     \end{subfigure}
-\caption[]{60h}
-\label{fig:}
+\caption[]{TARQ-Method fits to a sample generated from the 60h functions.}
+\label{fig:sampleFits}
 \end{figure}
+%-T method was from Aaron, A method from David, R method from me, and Q from Tim
 
 
 \begin{figure}[]
@@ -162,28 +176,28 @@ In all instances of the randomiztion, the randomization on the number of events,
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FFT_TMethod}
-        \caption{T}
+        \caption{T-Method}
     \end{subfigure}
     \hspace{1mm}
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FFT_AMethod}
-        \caption{A}
+        \caption{A-Method}
     \end{subfigure}% %you need this % here to add spacing between subfigures
 
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FFT_RMethod}
-        \caption{R}
+        \caption{R-Method}
     \end{subfigure}
     \hspace{1mm}
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FFT_QMethod}
-        \caption{Q}
+        \caption{Q-Method}
     \end{subfigure}
-\caption[]{60h}
-\label{fig:}
+\caption[]{FFTs of the TARQ fits shown in \figref{fig:sampleFits}.}
+\label{fig:FFTs}
 \end{figure}
 
 
@@ -192,28 +206,28 @@ In all instances of the randomiztion, the randomization on the number of events,
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{PValues_TMethod}
-        \caption{T}
+        \caption{T-Method}
     \end{subfigure}
     \hspace{1mm}
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{PValues_AMethod}
-        \caption{A}
+        \caption{A-Method}
     \end{subfigure}% %you need this % here to add spacing between subfigures
 
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{PValues_RMethod}
-        \caption{R}
+        \caption{R-Method}
     \end{subfigure}
     \hspace{1mm}
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{PValues_QMethod}
-        \caption{Q}
+        \caption{Q-Method}
     \end{subfigure}
-\caption[]{60h}
-\label{fig:}
+\caption[]{P-value distributions for one submission of grid jobs, hence the 1000 entries in the TAQ-Method plots, and the 1000 entries times 100 random seeds for the R-Method plot. The TA-Method p values are flat, while the RQ-Method p values are not. In the case of the Q-Method, the non-flat shape can be attributed to the difference in bin width and 2D function point-width. The origin of the non-flat shape for the R-Method is unknown at this time.}
+\label{fig:pValues}
 \end{figure}
 
 
@@ -222,33 +236,32 @@ In all instances of the randomiztion, the randomization on the number of events,
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{Rpull_TMethod}
-        \caption{T}
+        \caption{T-Method}
     \end{subfigure}
     \hspace{1mm}
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{Rpull_AMethod}
-        \caption{A}
+        \caption{A-Method}
     \end{subfigure}% %you need this % here to add spacing between subfigures
 
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{Rpull_RMethod}
-        \caption{R}
+        \caption{R-Method}
     \end{subfigure}
     \hspace{1mm}
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{Rpull_QMethod}
-        \caption{Q}
+        \caption{Q-Method}
     \end{subfigure}
-\caption[]{}
-\label{fig:}
+\caption[]{Pulls for the TARQ-Methods. The various distributions are close to unit-Gaussians, with differences in some RQ-Method cases which again is attributed to imperfect fits.}
+\label{fig:pulls}
 \end{figure}
 
 
 
 
--explicitly mention which fit functions are used to fit the data
-- don't do pileup, the effect should be a lot smaller than the energy threshold changes between analyses after pileup subtraction, it would be a major effort to somehow put in different pileup cases, etc.
+% - don't do pileup, the effect should be a lot smaller than the energy threshold changes between analyses after pileup subtraction, it would be a major effort to somehow put in different pileup cases, etc.
 
