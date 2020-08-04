@@ -19,6 +19,11 @@
 
 \subsection{Correlation Results}
 
+-talk about errors here
+-summarize some main facets about the errors, like the scale of RE A vs RW A and such
+
+- include table of analyzer R values and errors
+- include equation of allowed differences from Alex's equation 2.2
 
 
 \begin{figure}[]
@@ -68,6 +73,36 @@
 \end{landscape}
 
 
+\begin{landscape}
+\begin{table}
+\small
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{1\linewidth}{@{\extracolsep{\fill}}lXXXXXXXXXXX}
+  \toprule
+  	\multicolumn{12}{c}{{\normalsize 60h Analysis Differences}} \\
+  \midrule
+  	       & BU T & BU R & CU T & CU A & UW T & UW A & EU T & EU A & SJTU T & SJTU A & UK Q \\
+  \midrule
+	BU T   & 0.0000 $+0.00$ & 0.1154 $-1.42$ & 0.4495 $+1.32$ & 0.5943 $+0.96$ & 0.1555 $+1.17$ & 0.5983 $+0.28$ & 0.2817 $-0.29$ & 0.5890 $+0.55$ & 0.0609 $+1.03$ & 0.5781 $+0.66$ & 1.7692 $-0.23$  \\
+	BU R   & 0.1154 $+1.42$ & 0.0000 $+0.00$ & 0.4609 $+1.64$ & 0.6015 $+1.23$ & 0.1464 $+2.37$ & 0.5963 $+0.55$ & 0.2862 $+0.29$ & 0.5912 $+0.82$ & 0.1288 $+1.76$ & 0.5867 $+0.93$ & 1.7731 $-0.14$  \\
+	CU T   & 0.4495 $-1.32$ & 0.4609 $-1.64$ & 0.0000 $+0.00$ & 0.5710 $-0.03$ & 0.4642 $-0.88$ & 0.6017 $-0.71$ & 0.4628 $-1.46$ & 0.5933 $-0.46$ & 0.4484 $-1.18$ & 0.5854 $-0.36$ & 1.7710 $-0.56$  \\
+	CU A   & 0.5943 $-0.96$ & 0.6015 $-1.23$ & 0.5710 $+0.03$ & 0.0000 $+0.00$ & 0.5879 $-0.67$ & 0.2172 $-1.88$ & 0.5813 $-1.13$ & 0.2050 $-1.23$ & 0.5846 $-0.87$ & 0.1774 $-1.09$ & 1.6581 $-0.59$  \\
+	UW T   & 0.1555 $-1.17$ & 0.1464 $-2.37$ & 0.4642 $+0.88$ & 0.5879 $+0.67$ & 0.0000 $+0.00$ & 0.5619 $-0.03$ & 0.2851 $-0.93$ & 0.5731 $+0.24$ & 0.1600 $-0.75$ & 0.5741 $+0.34$ & 1.7583 $-0.33$  \\
+	UW A   & 0.5983 $-0.28$ & 0.5963 $-0.55$ & 0.6017 $+0.71$ & 0.2172 $+1.88$ & 0.5619 $+0.03$ & 0.0000 $+0.00$ & 0.5767 $-0.43$ & 0.1419 $+1.10$ & 0.5888 $-0.17$ & 0.1572 $+1.36$ & 1.6580 $-0.34$  \\
+	EU T   & 0.2817 $+0.29$ & 0.2862 $-0.29$ & 0.4628 $+1.46$ & 0.5813 $+1.13$ & 0.2851 $+0.93$ & 0.5767 $+0.43$ & 0.0000 $+0.00$ & 0.5553 $+0.73$ & 0.2827 $+0.51$ & 0.5696 $+0.81$ & 1.7456 $-0.18$  \\
+	EU A   & 0.5890 $-0.55$ & 0.5912 $-0.82$ & 0.5933 $+0.46$ & 0.2050 $+1.23$ & 0.5731 $-0.24$ & 0.1419 $-1.10$ & 0.5553 $-0.73$ & 0.0000 $+0.00$ & 0.5786 $-0.45$ & 0.1389 $+0.42$ & 1.6580 $-0.44$  \\
+	SJTU T & 0.0609 $-1.03$ & 0.1288 $-1.76$ & 0.4484 $+1.18$ & 0.5846 $+0.87$ & 0.1600 $+0.75$ & 0.5888 $+0.17$ & 0.2827 $-0.51$ & 0.5786 $+0.45$ & 0.0000 $+0.00$ & 0.5641 $+0.56$ & 1.7665 $-0.26$  \\
+	SJTU A & 0.5781 $-0.66$ & 0.5867 $-0.93$ & 0.5854 $+0.36$ & 0.1774 $+1.09$ & 0.5741 $-0.34$ & 0.1572 $-1.36$ & 0.5696 $-0.81$ & 0.1389 $-0.42$ & 0.5641 $-0.56$ & 0.0000 $+0.00$ & 1.6632 $-0.47$  \\
+	UK Q   & 1.7692 $+0.23$ & 1.7731 $+0.14$ & 1.7710 $+0.56$ & 1.6581 $+0.59$ & 1.7583 $+0.33$ & 1.6580 $+0.34$ & 1.7456 $+0.18$ & 1.6580 $+0.44$ & 1.7665 $+0.26$ & 1.6632 $+0.47$ & 0.0000 $+0.00$  \\
+  \bottomrule
+\end{tabularx}
+\caption[]{Differences in \R values for the 60h dataset between the different analyses. The top number is the allowed ppb difference in \R, $\sigma_{\text{allowed}}$, as calculated from the correlation coefficients and analysis errors. The bottom number is the number of sigmas difference, calculated as $\sigma_{\text{diff}} = (R_{\text{column}}-R_{\text{row}})/\sigma_{\text{allowed}}$.}
+\label{tab:60h_diff}
+\end{table}
+\end{landscape}
+
+
 \begin{table}
 \setlength\tabcolsep{15pt}
 \small
@@ -90,6 +125,11 @@
 \caption[]{Correlation coefficients between \R values for the 60h dataset, at the reconstruction level after the \RW T-Method and A-Method \R values were averaged among the different analyzers. In each table cell, the top number is the correlation coefficient and the bottom number is the error on the coefficient.}
 \label{tab:Corrs_60h_recon}
 \end{table}
+
+
+
+
+
 
 
 % HK
@@ -120,6 +160,36 @@
 \end{tabularx}
 \caption[]{Correlation coefficients between \R values for the HK dataset, at the analyzer level. In each table cell, the top number is the correlation coefficient and the bottom number is the error on the coefficient.}
 \label{tab:Corrs_HK_analyzer}
+\end{table}
+\end{landscape}
+
+
+\begin{landscape}
+\begin{table}
+\small
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{1\linewidth}{@{\extracolsep{\fill}}lXXXXXXXXXXX}
+  \toprule
+  	\multicolumn{12}{c}{{\normalsize HK Analysis Differences}} \\
+  \midrule
+  	       & BU T & BU R & CU T & CU A & UW T & UW A & EU T & EU A & SJTU T & SJTU A & UK Q \\
+  \midrule
+	BU T   & 0.0000 $+0.00$ & 0.0943 $-1.75$ & 0.3736 $-0.44$ & 0.5218 $+0.19$ & 0.1293 $+0.30$ & 0.5184 $+0.15$ & 0.2310 $-0.16$ & 0.5172 $+0.04$ & 0.0544 $+0.78$ & 0.5094 $-0.09$ & 1.5421 $+1.36$  \\
+	BU R   & 0.0943 $+1.75$ & 0.0000 $+0.00$ & 0.3846 $-0.00$ & 0.5262 $+0.50$ & 0.1256 $+1.63$ & 0.5153 $+0.47$ & 0.2389 $+0.54$ & 0.5172 $+0.36$ & 0.1087 $+1.91$ & 0.5143 $+0.23$ & 1.5454 $+1.46$  \\
+	CU T   & 0.3736 $+0.44$ & 0.3846 $+0.00$ & 0.0000 $+0.00$ & 0.5015 $+0.52$ & 0.3891 $+0.53$ & 0.5267 $+0.46$ & 0.3878 $+0.33$ & 0.5246 $+0.36$ & 0.3724 $+0.56$ & 0.5169 $+0.23$ & 1.5470 $+1.46$  \\
+	CU A   & 0.5218 $-0.19$ & 0.5262 $-0.50$ & 0.5015 $-0.52$ & 0.0000 $+0.00$ & 0.5208 $-0.11$ & 0.1842 $-0.10$ & 0.5114 $-0.26$ & 0.1788 $-0.42$ & 0.5119 $-0.11$ & 0.1502 $-0.96$ & 1.4443 $+1.38$  \\
+	UW T   & 0.1293 $-0.30$ & 0.1256 $-1.63$ & 0.3891 $-0.53$ & 0.5208 $+0.11$ & 0.0000 $+0.00$ & 0.4934 $+0.08$ & 0.2380 $-0.32$ & 0.5080 $-0.03$ & 0.1338 $+0.02$ & 0.5101 $-0.17$ & 1.5328 $+1.34$  \\
+	UW A   & 0.5184 $-0.15$ & 0.5153 $-0.47$ & 0.5267 $-0.46$ & 0.1842 $+0.10$ & 0.4934 $-0.08$ & 0.0000 $+0.00$ & 0.5022 $-0.23$ & 0.1181 $-0.47$ & 0.5086 $-0.07$ & 0.1314 $-0.95$ & 1.4438 $+1.40$  \\
+	EU T   & 0.2310 $+0.16$ & 0.2389 $-0.54$ & 0.3878 $-0.33$ & 0.5114 $+0.26$ & 0.2380 $+0.32$ & 0.5022 $+0.23$ & 0.0000 $+0.00$ & 0.4888 $+0.12$ & 0.2301 $+0.34$ & 0.5004 $-0.02$ & 1.5251 $+1.40$  \\
+	EU A   & 0.5172 $-0.04$ & 0.5172 $-0.36$ & 0.5246 $-0.36$ & 0.1788 $+0.42$ & 0.5080 $+0.03$ & 0.1181 $+0.47$ & 0.4888 $-0.12$ & 0.0000 $+0.00$ & 0.5064 $+0.04$ & 0.1163 $-0.60$ & 1.4439 $+1.44$  \\
+	SJTU T & 0.0544 $-0.78$ & 0.1087 $-1.91$ & 0.3724 $-0.56$ & 0.5119 $+0.11$ & 0.1338 $-0.02$ & 0.5086 $+0.07$ & 0.2301 $-0.34$ & 0.5064 $-0.04$ & 0.0000 $+0.00$ & 0.4956 $-0.18$ & 1.5365 $+1.34$  \\
+	SJTU A & 0.5094 $+0.09$ & 0.5143 $-0.23$ & 0.5169 $-0.23$ & 0.1502 $+0.96$ & 0.5101 $+0.17$ & 0.1314 $+0.95$ & 0.5004 $+0.02$ & 0.1163 $+0.60$ & 0.4956 $+0.18$ & 0.0000 $+0.00$ & 1.4472 $+1.48$  \\
+	UK Q   & 1.5421 $-1.36$ & 1.5454 $-1.46$ & 1.5470 $-1.46$ & 1.4443 $-1.38$ & 1.5328 $-1.34$ & 1.4438 $-1.40$ & 1.5251 $-1.40$ & 1.4439 $-1.44$ & 1.5365 $-1.34$ & 1.4472 $-1.48$ & 0.0000 $+0.00$  \\
+  \bottomrule
+\end{tabularx}
+\caption[]{Differences in \R values for the HK dataset between the different analyses. The top number is the allowed ppb difference in \R, $\sigma_{\text{allowed}}$, as calculated from the correlation coefficients and analysis errors. The bottom number is the number of sigmas difference, calculated as $\sigma_{\text{diff}} = (R_{\text{column}}-R_{\text{row}})/\sigma_{\text{allowed}}$.}
+\label{tab:HK_diff}
 \end{table}
 \end{landscape}
 
@@ -181,6 +251,36 @@
 \end{landscape}
 
 
+\begin{landscape}
+\begin{table}
+\small
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{1\linewidth}{@{\extracolsep{\fill}}lXXXXXXXXXXX}
+  \toprule
+  	\multicolumn{12}{c}{{\normalsize 9d Analysis Differences}} \\
+  \midrule
+  	       & BU T & BU R & CU T & CU A & UW T & UW A & EU T & EU A & SJTU T & SJTU A & UK Q \\
+  \midrule
+	BU T   & 0.0000 $+0.00$ & 0.0775 $-0.06$ & 0.3076 $-0.34$ & 0.4220 $+0.86$ & 0.1040 $+0.17$ & 0.4177 $+0.83$ & 0.1911 $+0.15$ & 0.4148 $+0.76$ & 0.0415 $+0.57$ & 0.4088 $+0.42$ & 1.2432 $+1.32$  \\
+	BU R   & 0.0775 $+0.06$ & 0.0000 $+0.00$ & 0.3164 $-0.31$ & 0.4281 $+0.86$ & 0.1007 $+0.23$ & 0.4171 $+0.84$ & 0.1940 $+0.17$ & 0.4174 $+0.77$ & 0.0874 $+0.32$ & 0.4149 $+0.43$ & 1.2487 $+1.32$  \\
+	CU T   & 0.3076 $+0.34$ & 0.3164 $+0.31$ & 0.0000 $+0.00$ & 0.3974 $+1.18$ & 0.3175 $+0.38$ & 0.4156 $+1.08$ & 0.3100 $+0.42$ & 0.4151 $+1.01$ & 0.3052 $+0.42$ & 0.4083 $+0.68$ & 1.2334 $+1.41$  \\
+	CU A   & 0.4220 $-0.86$ & 0.4281 $-0.86$ & 0.3974 $-1.18$ & 0.0000 $+0.00$ & 0.4213 $-0.82$ & 0.1513 $-0.13$ & 0.4130 $-0.81$ & 0.1469 $-0.32$ & 0.4139 $-0.82$ & 0.1241 $-1.54$ & 1.1522 $+1.11$  \\
+	UW T   & 0.1040 $-0.17$ & 0.1007 $-0.23$ & 0.3175 $-0.38$ & 0.4213 $+0.82$ & 0.0000 $+0.00$ & 0.3978 $+0.82$ & 0.1948 $+0.05$ & 0.4085 $+0.73$ & 0.1067 $+0.05$ & 0.4089 $+0.38$ & 1.2327 $+1.31$  \\
+	UW A   & 0.4177 $-0.83$ & 0.4171 $-0.84$ & 0.4156 $-1.08$ & 0.1513 $+0.13$ & 0.3978 $-0.82$ & 0.0000 $+0.00$ & 0.4019 $-0.79$ & 0.0973 $-0.28$ & 0.4100 $-0.78$ & 0.1031 $-1.67$ & 1.1483 $+1.13$  \\
+	EU T   & 0.1911 $-0.15$ & 0.1940 $-0.17$ & 0.3100 $-0.42$ & 0.4130 $+0.81$ & 0.1948 $-0.05$ & 0.4019 $+0.79$ & 0.0000 $+0.00$ & 0.3912 $+0.74$ & 0.1911 $-0.02$ & 0.4002 $+0.36$ & 1.2332 $+1.31$  \\
+	EU A   & 0.4148 $-0.76$ & 0.4174 $-0.77$ & 0.4151 $-1.01$ & 0.1469 $+0.32$ & 0.4085 $-0.73$ & 0.0973 $+0.28$ & 0.3912 $-0.74$ & 0.0000 $+0.00$ & 0.4062 $-0.72$ & 0.0900 $-1.60$ & 1.1532 $+1.14$  \\
+	SJTU T & 0.0415 $-0.57$ & 0.0874 $-0.32$ & 0.3052 $-0.42$ & 0.4139 $+0.82$ & 0.1067 $-0.05$ & 0.4100 $+0.78$ & 0.1911 $+0.02$ & 0.4062 $+0.72$ & 0.0000 $+0.00$ & 0.3982 $+0.38$ & 1.2417 $+1.30$  \\
+	SJTU A & 0.4088 $-0.42$ & 0.4149 $-0.43$ & 0.4083 $-0.68$ & 0.1241 $+1.54$ & 0.4089 $-0.38$ & 0.1031 $+1.67$ & 0.4002 $-0.36$ & 0.0900 $+1.60$ & 0.3982 $-0.38$ & 0.0000 $+0.00$ & 1.1581 $+1.26$  \\
+	UK Q   & 1.2432 $-1.32$ & 1.2487 $-1.32$ & 1.2334 $-1.41$ & 1.1522 $-1.11$ & 1.2327 $-1.31$ & 1.1483 $-1.13$ & 1.2332 $-1.31$ & 1.1532 $-1.14$ & 1.2417 $-1.30$ & 1.1581 $-1.26$ & 0.0000 $+0.00$  \\
+  \bottomrule
+\end{tabularx}
+\caption[]{Differences in \R values for the 9d dataset between the different analyses. The top number is the allowed ppb difference in \R, $\sigma_{\text{allowed}}$, as calculated from the correlation coefficients and analysis errors. The bottom number is the number of sigmas difference, calculated as $\sigma_{\text{diff}} = (R_{\text{column}}-R_{\text{row}})/\sigma_{\text{allowed}}$.}
+\label{tab:9d_diff}
+\end{table}
+\end{landscape}
+
+
 \begin{table}
 \setlength\tabcolsep{15pt}
 \small
@@ -234,6 +334,36 @@
 \end{tabularx}
 \caption[]{Correlation coefficients between \R values for the EG dataset, at the analyzer level. In each table cell, the top number is the correlation coefficient and the bottom number is the error on the coefficient.}
 \label{tab:Corrs_EG_analyzer}
+\end{table}
+\end{landscape}
+
+
+\begin{landscape}
+\begin{table}
+\small
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{1\linewidth}{@{\extracolsep{\fill}}lXXXXXXXXXXX}
+  \toprule
+  	\multicolumn{12}{c}{{\normalsize EG Analysis Differences}} \\
+  \midrule
+  	       & BU T & BU R & CU T & CU A & UW T & UW A & EU T & EU A & SJTU T & SJTU A & UK Q \\
+  \midrule
+	BU T   & 0.0000 $+0.00$ & 0.0602 $-1.05$ & 0.2421 $-0.05$ & 0.3325 $+0.34$ & 0.0806 $-0.15$ & 0.3256 $+0.10$ & 0.1461 $-1.20$ & 0.3266 $-0.08$ & 0.0346 $+1.04$ & 0.3226 $+0.02$ & 1.0990 $-0.26$  \\
+	BU R   & 0.0602 $+1.05$ & 0.0000 $+0.00$ & 0.2495 $+0.20$ & 0.3372 $+0.52$ & 0.0781 $+0.65$ & 0.3257 $+0.29$ & 0.1513 $-0.74$ & 0.3282 $+0.12$ & 0.0687 $+1.45$ & 0.3276 $+0.22$ & 1.1029 $-0.20$  \\
+	CU T   & 0.2421 $+0.05$ & 0.2495 $-0.20$ & 0.0000 $+0.00$ & 0.3100 $+0.40$ & 0.2497 $+0.00$ & 0.3221 $+0.14$ & 0.2464 $-0.66$ & 0.3215 $-0.04$ & 0.2409 $+0.21$ & 0.3188 $+0.07$ & 1.0972 $-0.25$  \\
+	CU A   & 0.3325 $-0.34$ & 0.3372 $-0.52$ & 0.3100 $-0.40$ & 0.0000 $+0.00$ & 0.3337 $-0.37$ & 0.1183 $-0.67$ & 0.3270 $-0.88$ & 0.1122 $-1.22$ & 0.3274 $-0.23$ & 0.1012 $-1.03$ & 1.0387 $-0.39$  \\
+	UW T   & 0.0806 $+0.15$ & 0.0781 $-0.65$ & 0.2497 $-0.00$ & 0.3337 $+0.37$ & 0.0000 $+0.00$ & 0.3125 $+0.14$ & 0.1505 $-1.08$ & 0.3230 $-0.04$ & 0.0851 $+0.57$ & 0.3249 $+0.06$ & 1.0960 $-0.25$  \\
+	UW A   & 0.3256 $-0.10$ & 0.3257 $-0.29$ & 0.3221 $-0.14$ & 0.1183 $+0.67$ & 0.3125 $-0.14$ & 0.0000 $+0.00$ & 0.3182 $-0.65$ & 0.0751 $-0.77$ & 0.3204 $+0.01$ & 0.0816 $-0.31$ & 1.0406 $-0.31$  \\
+	EU T   & 0.1461 $+1.20$ & 0.1513 $+0.74$ & 0.2464 $+0.66$ & 0.3270 $+0.88$ & 0.1505 $+1.08$ & 0.3182 $+0.65$ & 0.0000 $+0.00$ & 0.3115 $+0.48$ & 0.1460 $+1.45$ & 0.3193 $+0.57$ & 1.0964 $-0.10$  \\
+	EU A   & 0.3266 $+0.08$ & 0.3282 $-0.12$ & 0.3215 $+0.04$ & 0.1122 $+1.22$ & 0.3230 $+0.04$ & 0.0751 $+0.77$ & 0.3115 $-0.48$ & 0.0000 $+0.00$ & 0.3208 $+0.19$ & 0.0746 $+0.44$ & 1.0437 $-0.25$  \\
+	SJTU T & 0.0346 $-1.04$ & 0.0687 $-1.45$ & 0.2409 $-0.21$ & 0.3274 $+0.23$ & 0.0851 $-0.57$ & 0.3204 $-0.01$ & 0.1460 $-1.45$ & 0.3208 $-0.19$ & 0.0000 $+0.00$ & 0.3145 $-0.09$ & 1.0977 $-0.30$  \\
+	SJTU A & 0.3226 $-0.02$ & 0.3276 $-0.22$ & 0.3188 $-0.07$ & 0.1012 $+1.03$ & 0.3249 $-0.06$ & 0.0816 $+0.31$ & 0.3193 $-0.57$ & 0.0746 $-0.44$ & 0.3145 $+0.09$ & 0.0000 $+0.00$ & 1.0411 $-0.28$  \\
+	UK Q   & 1.0990 $+0.26$ & 1.1029 $+0.20$ & 1.0972 $+0.25$ & 1.0387 $+0.39$ & 1.0960 $+0.25$ & 1.0406 $+0.31$ & 1.0964 $+0.10$ & 1.0437 $+0.25$ & 1.0977 $+0.30$ & 1.0411 $+0.28$ & 0.0000 $+0.00$  \\
+  \bottomrule
+\end{tabularx}
+\caption[]{Differences in \R values for the EG dataset between the different analyses. The top number is the allowed ppb difference in \R, $\sigma_{\text{allowed}}$, as calculated from the correlation coefficients and analysis errors. The bottom number is the number of sigmas difference, calculated as $\sigma_{\text{diff}} = (R_{\text{column}}-R_{\text{row}})/\sigma_{\text{allowed}}$.}
+\label{tab:EG_diff}
 \end{table}
 \end{landscape}
 
