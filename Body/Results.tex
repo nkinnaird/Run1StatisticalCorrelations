@@ -2,6 +2,7 @@
 
 \graphicspath{{Body/Figures/Correlations/}}
 
+\clearpage
 \section{Results}
 
 
@@ -96,10 +97,6 @@ The correlation matrix between different analyzers for the EG dataset is shown i
 \end{table}
 \end{landscape}
 
-
-
-
-
 % HK
 
 \begin{landscape}
@@ -131,10 +128,6 @@ The correlation matrix between different analyzers for the EG dataset is shown i
 \end{table}
 \end{landscape}
 
-
-
-
-
 % 9d
 
 \begin{landscape}
@@ -165,9 +158,6 @@ The correlation matrix between different analyzers for the EG dataset is shown i
 \label{tab:Corrs_9d_analyzer}
 \end{table}
 \end{landscape}
-
-
-
 
 % EG
 
@@ -202,23 +192,19 @@ The correlation matrix between different analyzers for the EG dataset is shown i
 
 
 
-
-
-
-
-
-
 \subsection{Sigma Differences}
 
+% -maybe use the word pull instead of sigma here somehow?
 
 
-make sure I use the same notation for the correlation coefficients everywhere, r probably
-
--1 sigma allowed difference
-
+Once the correlations between the different analyses and methods have been determined, the significance of the differences in results between those analyses can be determined. \tabref{tab:analysisRValues} gives the commonly blinded fitted \R values for the different datasets and different analyses along with their errors. The $1\sigma$ allowed deviation between two analysis results is given by
 \begin{align}
 	\sigma_{\text{allowed}} = \sqrt{\sigma^{2}_{i} + \sigma^{2}_{j} - 2r_{ij}\sigma_{i}\sigma_{j}}
 \end{align}
+where $\sigma_{i}$ and $\sigma_{j}$ are the errors of the two analyses, and $r_{ij}$ is the correlation coefficient between the two analyses. Using this equation and the provided correlation coefficients, the allowed differences between all of the analyses for the four datasets are determined. Tables~\ref{tab:60h_diff} through \ref{tab:EG_diff} display the allowed differences in ppb between the different analyses, as well as the number of $\sigma$s difference or `pull' after calculating the $\Delta R$s from \tabref{tab:analysisRValues}.  In general the deviations between the different analyses are spread around 0 with deviations rising into the two sigma range. Some specifics to note are that the Q-Method fits in the HK and 9d datasets are something like $1.35\sigma$ or so above the rest depending on the exact correlation, and the R-Method values are consistently below low the rest barring a few entries, up to around $2\sigma$ or so in some cases. In order to get a sense of the spread of pulls, all entries from the top-side of the diagonal were taken for each of the datasets and put into a histogram, as shown in \figref{fig:AllSigmas}. The resulting distribution while not perfect shows a nice symmetry around 0, with few entries close to $2\sigma$ or higher. This histogram provides some confidence that the differences are natural and to be expected.
+
+
+% -make sure I use the same notation for the correlation coefficients everywhere, r probably
 
 
 \begin{table}
@@ -382,18 +368,17 @@ make sure I use the same notation for the correlation coefficients everywhere, r
 
 
 
-
 \begin{figure}[]
 \centering
 \includegraphics[width=0.65\textwidth]{AllSigmas}
-\caption{Sigma diffs from all datasets for the individual analysis comparisons. Identical but oppposite entries from across the main diagonal are not included, as well as the entries for the diagonals themselves. In general such a pull distribution should be a unit Gaussian, however entries from the same row or column will be correlated, and are nevertheless included in this plot. This is particularly apparent with the spike around $1.35\sigma$, which comes from some of the Q-Method correlations in the HK and 9d datasets, in both of which the Q-Method fit returned a greater R-value than the rest of the fits. A number of the entries at the low side of the distribution correspond to R-Method fits compared to the rest.}
+\caption{Sigma diffs from all datasets for the individual analysis comparisons. Identical but oppposite entries from across the main diagonal are not included, as well as the entries for the diagonals themselves. The entries from the top-right of the diagonal are taken and filled into this histogram. In general such a pull distribution should be a unit Gaussian, however entries from the same row or column will be correlated, and are nevertheless included in this plot. This is particularly apparent with the spike around $1.35\sigma$, which comes from some of the Q-Method correlations in the HK and 9d datasets, in both of which the Q-Method fit returned a greater R-value than the rest of the fits. A number of the entries at the high side of the distribution correspond to R-Method fits compared to the rest. These pull the distributions mean to a value greater than 0.}
 \label{fig:AllSigmas}
 \end{figure}
 
 
 
 
-
+\clearpage
 \subsection{Reconstruction Level Correlations}
 \label{sub:reconcorrelations}
 
