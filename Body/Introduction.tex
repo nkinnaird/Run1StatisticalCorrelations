@@ -5,14 +5,16 @@
 \clearpage
 \section{Introduction}
 
-The \Rone \wa analysis effort consists of six separate groups conducting a total of eleven different analyses. Depending on the combination methodology adopted, correlation coefficients between the different analyses may be necessary in order to properly combine the data. These correlation coefficients will depend upon the specific analysis types, reconstructions, and parameters used in the various analyses. \tabref{tab:analyzerParameters} gives a summary of the different analysis types and associated parameters which are directly influence the correlation coefficients. 
 
-Preliminary versions of the correlation coefficients and results using one combination approach were determined by A. Keshavarzi in early 2020 \cite{AlexCombinationNote}. The correlation coefficients therein were determined from a Toy Monte Carlo built from first principles. For the final combination of the \Rone datasets and any future combinations, it is more desirable to determine the correlation coefficients with input from real data. 
+The \Rone \wa analysis effort consisted of six independent groups conducting a total of eleven different analyses, for each of the four \Rone datasets. These groups included Boston University (BU), Cornell University (CU), University of Washington (UW), a collaborative group from several European institutions under the moniker `Europa' (EU), Shanghai Jiao Tong University (SJTU), and the University of Kentucky (UK). Each analysis was carried out independently of the rest. The groups from CU, UW, EU, and SJTU all performed T and A-Method analyses, while the group from BU performed T and R-Method analyses. The CU group utilized the \RE positron reconstruction, while the rest (barring the UK group) utilized the \RW reconstruction. The group from UK performed a Q-Method analysis, and therefore did not use either the \RE or \RW positron reconstructions. Details on the \RE and \RW positron reconstructions can be found in the theses of D. Sweigart \cite{phdthesis:2020Sweigart} and A. Fienberg \cite{phdthesis:2019Fienberg} respectively, where they were the ones who developed the two reconstructions. Within each of the analyses, parameters were chosen according to preference or analysis specifics. These parameters correspond to energy thresholds for the various methods, binning parameters, and fit start and times. \tabref{tab:analyzerParameters} gives a summary of the different analyses for the different groups, and the associated parameters\footnote{Groups used different pileup methods with varying parameters as well, however those details are not included here.}. References for the specifics of the analyses are included in the table.
 
 
-% Include this? : Details on the recon east stuff can be found in David's thesis, recon west in Aaron's, ratio in mine, Q method stuff in something from Tim, something for Matteo and Bingzhi?
-
-- specifically mention somewhere the 11 different analyses, I don't think I ever actaully state that anywhere
+The four datasets for the \Rone analysis consisted of the 60h, HighKick, 9d, and Endgame datasets. These are sometimes abbreviated in different manners, such as 60h, HK, 9d, EG, or 1a, 1b, 1c, 1d respectively. The former is used at times in this document. The final, commonly blinded, best-fit \R values for all eleven analyses to all four datasets are given in \tabref{tab:analysisRValues}, where the equation
+\begin{align}
+  \omega_{a} = 2\pi \cdot \SI{0.2291}{MHz} \cdot (1 + (R - \Delta R) \times 10^{-6}),
+\label{eq:wa}
+\end{align}
+gives the relationship between \wa and \R, and $\Delta R$ is the common blinding offset. In order to provide a single \wa number per dataset that will feed into the final determination of \amu, these \R values need to be combined in some way. Depending on the combination methodology adopted, correlation coefficients between the different analyses may be necessary in order to properly combine the results. These correlation coefficients will depend upon the specific analysis types, reconstructions, and parameters used in the various analyses, as given in \tabref{tab:analyzerParameters}. Preliminary versions of the correlation coefficients and results using one combination approach were determined by A. Keshavarzi in early 2020 \cite{AlexCombinationNote}\footnote{This note also provides a nice short summary of the different datasets, methods, and reconstructions used in the analyses}. The correlation coefficients therein were determined from a Monte Carlo simulation built from first principles. Since that work, a better Monte Carlo simulation was developed which included more information from real data as well as the individual analysis parameters, and the correlation coefficients were re-estimated. Those new correlation coefficients are presented here, along with details about the Monte Carlo.
 
 
 \begin{landscape}
@@ -22,31 +24,65 @@ Preliminary versions of the correlation coefficients and results using one combi
 \renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{1\linewidth}{@{\extracolsep{\fill}}lcccccc}
   \hline
-    \multicolumn{7}{c}{\textbf{Analyzer Parameters}} \\
+    \multicolumn{7}{c}{\textbf{\Rone Analyses And Parameters}} \\
   \hline\hline
-    Analysis Effort & \thead{Cornell} & \thead{U. Washington} & \thead{Europa} & \thead{Shanghai Jiao Tong U.} & \thead{Boston U.} & \thead{U. Kentucky} \\
+    Analysis Effort & \thead{Cornell U.} & \thead{U. Washington} & \thead{Europa} & \thead{Shanghai Jiao Tong U.} & \thead{Boston U.} & \thead{U. Kentucky} \\
     Abbreviation & CU & UW & EU & SJTU & BU & UK \\
     Lead Analyzer & D. Sweigart & A. Fienberg & M. Sorbara & B. Li & N. Kinnaird & T. Gorringe \\
+    Analysis References & \cite{phdthesis:2020Sweigart,SweigartUnblindingPres} & \cite{phdthesis:2019Fienberg,FienbergUnblindingPres} & \cite{EUUnblindingPres} & \cite{SJTUUnblindingPres} & \cite{phdthesis:2020Kinnaird,BUUnblindingPres} & \cite{UKUnblindingPres} \\
   \hline 
-  	Parameter \\
+    Parameter \\
   \hline
-  	Analysis Methods (TARQ) & TA & TA & TA & TA & TR & Q \\
-  	Reconstruction & East & West & West & West & West & Q \\
-  	Bin Width (ns) & 149.2 & 149.19 & 149.19 & 149.2 & 149.2 & 150 \\
-  	Bin Edge (ns) & 0 & 53.62 & 0 & 0 & 0 & 0 \\
-  	T-Method Threshold (\MeV) & 1700-- & 1700--6000 & 1680--7020 & 1700--9300 & 1700-- & - \\ 
-  	A-Method Threshold (\MeV) & 1000--3000 & 1000--3020 & 1080--3020 & 1000--3100 & - & - \\ 
-  	R-Method Threshold (\MeV) & - & - & - & - & 1700-- & - \\ 
-  	Q-Method Threshold (\MeV) & - & - & - & - & - & 300-- \\ 
-  	Fit Start Time ($\mu$s) & 30.2876 & 30.19 & 30.1364 & 30.2876 & 30.2876 & 30 \\ 
-  	Fit Start Time (EndGame) ($\mu$s) & 49.982 & 49.88308 & 49.8295 & 49.982 & 49.982 & 49.9762 \\ 
-  	Fit End Time ($\mu$s) & 649.9152 & 649.92526 & 650.021 & 671.4 & 650.0644 & 215.5 \\ 
+    Analysis Methods (TARQ) & TA & TA & TA & TA & TR & Q \\
+    Reconstruction & East & West & West & West & West & Q \\
+    Bin Width (ns) & 149.2 & 149.19 & 149.19 & 149.2 & 149.2 & 150 \\
+    Bin Edge (ns) & 0 & 53.62 & 0 & 0 & 0 & 0 \\
+    T-Method Threshold (\MeV) & 1700-- & 1700--6000 & 1680--7020 & 1700--9300 & 1700-- & - \\ 
+    A-Method Threshold (\MeV) & 1000--3000 & 1000--3020 & 1080--3020 & 1000--3100 & - & - \\ 
+    R-Method Threshold (\MeV) & - & - & - & - & 1700-- & - \\ 
+    Q-Method Threshold (\MeV) & - & - & - & - & - & 300-- \\ 
+    Fit Start Time ($\mu$s) & 30.2876 & 30.19 & 30.1364 & 30.2876 & 30.2876 & 30 \\ 
+    Fit Start Time (EndGame) ($\mu$s) & 49.982 & 49.88308 & 49.8295 & 49.982 & 49.982 & 49.9762 \\ 
+    Fit End Time ($\mu$s) & 649.9152 & 649.92526 & 650.021 & 671.4 & 650.0644 & 215.5 \\ 
   \hline
 \end{tabularx}
 \caption[]{Individual analysis groups, the lead analyzers in those groups, and the methods and parameters in the respective analyses. Parameters provide via private communication and through discussion in the \Rone Combination Task Force \cite{CombinationMeeting}.}
 \label{tab:analyzerParameters}
 \end{table}
 \end{landscape}
+
+
+\begin{table}
+\small
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{1\linewidth}{@{\extracolsep{\fill}}lcccccccc}
+  \toprule
+    \multicolumn{9}{c}{{\normalsize \Rone Commonly Blinded Results }} \\
+  \midrule
+    \multirow{2}{*}{Analysis} & \multicolumn{2}{c}{60h} & \multicolumn{2}{c}{HK} & \multicolumn{2}{c}{9d} & \multicolumn{2}{c}{EG} \\ \cmidrule{2-3} \cmidrule{4-5} \cmidrule{6-7} \cmidrule{8-9}
+         & \R & $\sigma_{R}$ & \R & $\sigma_{R}$ & \R & $\sigma_{R}$ & \R & $\sigma_{R}$ \\
+  \midrule
+  BU T   & $-28.8023$ & 1.3582 & $-27.0442$ & 1.1561 & $-27.9171$ & 0.9301 & $-27.7020$ & 0.7584 \\
+  BU R   & $-28.9668$ & 1.3598 & $-27.2093$ & 1.1574 & $-27.9218$ & 0.9327 & $-27.7654$ & 0.7576 \\
+  CU T   & $-28.2111$ & 1.3377 & $-27.2093$ & 1.1336 & $-28.0202$ & 0.9126 & $-27.7152$ & 0.7474 \\
+  CU A   & $-28.2288$ & 1.2079 & $-26.9466$ & 1.0234 & $-27.5532$ & 0.8240 & $-27.5902$ & 0.6758 \\
+  UW T   & $-28.6199$ & 1.3308 & $-27.0049$ & 1.1277 & $-27.8989$ & 0.9079 & $-27.7144$ & 0.7437 \\
+  UW A   & $-28.6373$ & 1.2184 & $-26.9657$ & 1.0302 & $-27.5723$ & 0.8305 & $-27.6694$ & 0.6799 \\
+  EU T   & $-28.8848$ & 1.3327 & $-27.0806$ & 1.1203 & $-27.8890$ & 0.9067 & $-27.8772$ & 0.7435 \\
+  EU A   & $-28.4813$ & 1.1938 & $-27.0213$ & 1.0120 & $-27.5998$ & 0.8146 & $-27.7276$ & 0.6679 \\
+  SJTU T & $-28.7398$ & 1.3314 & $-27.0019$ & 1.1281 & $-27.8935$ & 0.9084 & $-27.6658$ & 0.7441 \\
+  SJTU A & $-28.4228$ & 1.2061 & $-27.0910$ & 1.0223 & $-27.7440$ & 0.8224 & $-27.6945$ & 0.6729 \\
+  UK Q   & $-29.2062$ & 2.0585 & $-24.9464$ & 1.7478 & $-26.2794$ & 1.4032 & $-27.9905$ & 1.2690 \\
+  \bottomrule
+\end{tabularx}
+\caption[]{Best-fit results for \R and it's statistical error for the different \Rone datasets and analyses. \R here is commonly blinded, and still contains both a software and hardware blinding.}
+\label{tab:analysisRValues}
+\end{table}
+
+
+
+
 
 
 

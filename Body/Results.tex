@@ -196,8 +196,10 @@ The correlation matrix between different analyzers for the EG dataset is shown i
 
 % -maybe use the word pull instead of sigma here somehow?
 
+- moved table of results to introduction, make sure to reference it naturally
 
-Once the correlations between the different analyses and methods have been determined, the significance of the differences in results between those analyses can be determined. \tabref{tab:analysisRValues} gives the commonly blinded fitted \R values for the different datasets and different analyses along with their errors. The $1\sigma$ allowed deviation between two analysis results is given by
+
+Once the correlations between the different analyses and methods have been determined, the significance of the differences in results between those analyses can be determined. \tabref{tab:analysisRValues} gives the commonly blinded fitted \R values for the different datasets and different analyses along with their statistical errors. The $1\sigma$ allowed deviation between two analysis results is given by
 \begin{align}
 	\sigma_{\text{allowed}} = \sqrt{\sigma^{2}_{i} + \sigma^{2}_{j} - 2r_{ij}\sigma_{i}\sigma_{j}}
 \end{align}
@@ -207,33 +209,6 @@ where $\sigma_{i}$ and $\sigma_{j}$ are the errors of the two analyses, and $r_{
 % -make sure I use the same notation for the correlation coefficients everywhere, r probably
 
 
-\begin{table}
-\small
-\centering
-\renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{1\linewidth}{@{\extracolsep{\fill}}lcccccccc}
-  \toprule
-  	\multicolumn{9}{c}{{\normalsize \Rone Commonly Blinded Results }} \\
-  \midrule
-  	\multirow{2}{*}{Analysis} & \multicolumn{2}{c}{60h} & \multicolumn{2}{c}{HK} & \multicolumn{2}{c}{9d} & \multicolumn{2}{c}{EG} \\ \cmidrule{2-3} \cmidrule{4-5} \cmidrule{6-7} \cmidrule{8-9}
-  			 & \R & $\sigma_{R}$ & \R & $\sigma_{R}$ & \R & $\sigma_{R}$ & \R & $\sigma_{R}$ \\
-  \midrule
-	BU T   & $-28.8023$ & 1.3582 & $-27.0442$ & 1.1561 & $-27.9171$ & 0.9301 & $-27.7020$ & 0.7584 \\
-	BU R   & $-28.9668$ & 1.3598 & $-27.2093$ & 1.1574 & $-27.9218$ & 0.9327 & $-27.7654$ & 0.7576 \\
-	CU T   & $-28.2111$ & 1.3377 & $-27.2093$ & 1.1336 & $-28.0202$ & 0.9126 & $-27.7152$ & 0.7474 \\
-	CU A   & $-28.2288$ & 1.2079 & $-26.9466$ & 1.0234 & $-27.5532$ & 0.8240 & $-27.5902$ & 0.6758 \\
-	UW T   & $-28.6199$ & 1.3308 & $-27.0049$ & 1.1277 & $-27.8989$ & 0.9079 & $-27.7144$ & 0.7437 \\
-	UW A   & $-28.6373$ & 1.2184 & $-26.9657$ & 1.0302 & $-27.5723$ & 0.8305 & $-27.6694$ & 0.6799 \\
-	EU T   & $-28.8848$ & 1.3327 & $-27.0806$ & 1.1203 & $-27.8890$ & 0.9067 & $-27.8772$ & 0.7435 \\
-	EU A   & $-28.4813$ & 1.1938 & $-27.0213$ & 1.0120 & $-27.5998$ & 0.8146 & $-27.7276$ & 0.6679 \\
-	SJTU T & $-28.7398$ & 1.3314 & $-27.0019$ & 1.1281 & $-27.8935$ & 0.9084 & $-27.6658$ & 0.7441 \\
-	SJTU A & $-28.4228$ & 1.2061 & $-27.0910$ & 1.0223 & $-27.7440$ & 0.8224 & $-27.6945$ & 0.6729 \\
-	UK Q   & $-29.2062$ & 2.0585 & $-24.9464$ & 1.7478 & $-26.2794$ & 1.4032 & $-27.9905$ & 1.2690 \\
-  \bottomrule
-\end{tabularx}
-\caption[]{Fit results for \R and it's error for the different \Rone datasets and analyses. \R here is commonly blinded, and still contains both a software and hardware blinding.}
-\label{tab:analysisRValues}
-\end{table}
 
 
 
