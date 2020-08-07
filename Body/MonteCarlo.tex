@@ -99,48 +99,44 @@ Before describing the event generation, a couple of points should be mentioned. 
 \subsection{Event Generation and Randomization}
 
 
-Events were generated through \texttt{TF2->GetRandom2()} method calls. Many samples of pseudo-data were generated via the same procedure, for each dataset and for the two \texttt{TF2} variants with input from either \RE or \RW. The number of hits per dataset was determined empirically such that the error on the fitted \R value is comparable to the \Rone datasets, where the approximate level of statistics for the 60h, HK, 9d, and EG datasets are given by \{5.04e9, 7.01e9, 1.08e10, 2.21e10\}. (These numbers depend on the energy and time ranges of the \texttt{TF2}s and hence do not correspond directly to the real dataset statistics, what's important and what is replicated is the number of hits which end up in the wiggle plot within the fit ranges.) The errors on \R were always within \SIrange{10}{20}{ppb} of the actual analysis values (and many times within \ppb{1}).
+Individual events were generated through \texttt{TF2->GetRandom2()} method calls as mentioned previously. Many samples of pseudo-data were generated via the same procedure, for each dataset and for the two \texttt{TF2} variants with input from either \RE or \RW. (Here termed either East-To-West or West-To-East.) The number of hits per dataset was determined empirically such that the error on the fitted \R values were comparable to the \Rone results shown in \tabref{tab:analysisRValues}. The approximate level of statistics for the 60h, HK, 9d, and EG datasets are given by \{5.04e9, 7.01e9, 1.08e10, 2.21e10\}. Note that these numbers depend on the energy and time ranges of the \texttt{TF2}s and hence do not correspond directly to the real dataset statistics, what was important and thus replicated was the number of hits which ended up in the wiggle plot within the fit ranges. The errors on the fitted \R values were always within \SIrange{10}{20}{ppb} of the actual real data analysis values (and many times within a few ppb).
 
-Note that in the event generation no time-randomization was included, as is done by the analyzers in order to remove effects of the fast rotation. It is expected that in the Monte Carlo with no fast rotation effect, with enough random seeds, the mean \R value is equivalent to the non-time-randomized \R value. While the spread in the \R values will be slightly less without the time-randomization, this is expected to negligibly affect the final correlation coefficients. This effect could be included at the expense of many CPU hours since the event generation would take significantly longer.
+Note that in the event generation no time-randomization was included, as is done by the analyzers in order to remove effects of the fast rotation. It is expected that in the Monte Carlo with no fast rotation effect, with enough random seeds, the mean fitted \R value is equivalent to the non-time-randomized \R value. While the spread in the \R values will be slightly less without the time-randomization, this is expected to negligibly affect the final correlation coefficients. This effect could in the future be included at the expense of more processing time, where it is expected that the event generation would take significantly longer.
 
-The procedure for the event generation is as follows:
+The procedure for the event generation was as follows:
 \begin{enumerate}
-	\item{A number of hits per sample and per dataset is determined via \texttt{PoissonD()} method calls on the static number of statistics per dataset such that each sample has a very slightly different amount of statistics.} 
-	\item{For each hit or entry, \texttt{TF2->GetRandom2()} is called on one of the two 2D input functions to generate a time or energy.}
-	\item{The hit energies are designated either as \RE or \RW. For either variant, the corresponding \RW or \RE energy is determined by randomly sampling the corresponding energy projection as determined from J. LaBounty's studies, see \figref{fig:EvWprojection}. This projection is sampled via \texttt{TH1->GetRandom()} method calls. Whatever the first generated energy is, \RE or \RW, is also designated as the Q-Method energy.}
+	\item{A number of hits per sample and per dataset was determined via \texttt{PoissonD()} method calls on the static number of statistics per dataset such that each sample had a very slightly different amount of statistics.} 
+	\item{For each hit or entry, \texttt{TF2->GetRandom2()} is called on one of the two 2D input functions, with either \RE or \RW input, to generate a time and energy for hit.}
+	\item{For either variant, East-To-West or West-To-East, the corresponding \RW or \RE energy was determined by randomly sampling the corresponding energy projection as determined from J. LaBounty's studies, see \figref{fig:EvWprojection}. This projection was sampled via \texttt{TH1->GetRandom()} method calls. The first generated energy, designated either as \RE or \RW, was also designated as the Q-Method energy.}
 	\item{The corresponding energies, asymmetries, and weights are then used to fill histograms defined by the analyzer parameters given in \tabref{tab:analyzerParameters}.}
-	\item{Because the R-Method has intrinsic randomization in how the counts get put into the four Ratio histograms, these Ratio histograms are produced for 100 random seeds. The randomization of counts is performed via \texttt{GetUniform()} method calls.} 
+	\item{The R-Method has intrinsic randomization in how the counts get put into the four ratio histograms, and so ratio histograms were produced for 100 random seeds. The randomization of counts was performed via \texttt{GetUniform()} method calls.}
 \end{enumerate}
 
 
-In all instances of the randomization, including the randomization on the number of events, sampling the \texttt{TF2}s, sampling the \RE vs \RW energy projections, and the ratio randomization, the \ROOT\texttt{TRandomMixMax} class is used. The standard \texttt{TRandom3} class was initially used and found to be inadequate for this high precision statistical study. \texttt{TRandomMixMax} has the advantage of producing proper random numbers with high periodicity, and also being fast enough to produce the high numbers of needed events in a reasonable time frame\footnote{This generator is the default used in Geant4.}\cite{TRandom}.
+In all instances of the randomization, including the randomization on the number of events, sampling the \texttt{TF2}s, sampling the \RE vs \RW energy projections, and the ratio randomization, the \ROOT\texttt{TRandomMixMax} class is used. The standard \texttt{TRandom3} class was initially used and found to be inadequate for this high precision statistical study. \texttt{TRandomMixMax} has the advantage of producing better random numbers with high periodicity, and also being fast enough to produce the high numbers of needed events in a reasonable time frame\footnote{This generator is the default used in Geant4.}\cite{TRandom}.
 
 
 
-
--talk about submitting jobs to the grid here or elsewhere? 
--make sure I introduce the East-To-West and West-To-East variant properly because I use that terminaology a lot in the results section
+% -talk about submitting jobs to the grid here or elsewhere? I start showing p values and the like in the next section and talking about grid jobs
 
 
 
 \subsection{Fitting the Pseudo-Data}
 
-- need to mention which fitting ranges I'm using, for EG and all that, point back to first table
 
-
-Once the pseudo-data has been generated, the data is fit either with a simple five parameter function in the TAQ-Methods,
+Once the pseudo-data has been generated, the data was fit either with a simple five parameter function in the TAQ-Methods,
 \begin{align}
     N(t) = N_{0} \cdot e^{-t/\tau_{\mu}} \cdot (1 + A \cos{(\omega_{a}t + \phi})),
 \label{eq:fiveParFit}
 \end{align}
 or a simple three parameter function in the case of the R-Method,
 \begin{align}
-    R(t) =A \cos{(\omega_{a}t + \phi}).
+    R(t) =A \cos{(\omega_{a}t + \phi}),
 \label{eq:ratioFit}
 \end{align}
-In both cases the energy dependent pieces from \equref{eq:2dfunc} are gone, and the fitted constants will converge to their integrated values. \figref{fig:sampleFits} shows examples of fits to the four different methods, for the same generated sample. In general the fit parameters are very similar to one another between the different methods, however due to the different analyzer parameters chosen like energy threshold, the fit parameters can be slightly, but significantly, different. \figref{fig:FFTs} shows the FFTs of the fits from \figref{fig:sampleFits}. What can sometimes occur, though isn't shown here, is that aliasing peaks can appear at beat frequencies with \wa, due to differences in the point-width frequency of the input 2D function and the bin width of the histogram. Once the order-1000 grid jobs are submitted and the histograms are returned, all the samples and all the seeds are fit. The fit parameters are stored into \ROOT trees so that the parameters for the different methods and samples can be compared. 
+with fit ranges defined by the associated parameters in \tabref{tab:analyzerParameters}. In both cases the energy dependent pieces from \equref{eq:2dfunc} are gone, and the fitted constants  converge to their integrated values. \figref{fig:sampleFits} shows examples of fits to the four different methods, for the same generated sample. In general the fit parameters are very similar to one another between the different methods, however due to the different analyzer parameters chosen like energy threshold, the fit parameters can be slightly, but significantly, different. \figref{fig:FFTs} shows the FFTs of the fit residuals from \figref{fig:sampleFits}. What sometimes occurred, though isn't shown here, is that aliasing peaks can appear at beat frequencies with \wa, due to differences in the point-width frequency of the input 2D function and the bin width of the histogram. 
 
-Similarly, measures of the goodness-of-fit are also stored, in order to verify that the pseudo-data is being fit correctly. P value distributions for the four methods for one set of grid jobs is shown in \figref{fig:pValues}. As shown the distributions are flat for the TA-Methods, and are not flat for the RQ-Methods. The Q-Method is understood to be non-flat due to the difference in bin width and point-width mentioned previously, while the origin of the non-flatness of the R-Method is unkwown at this time. \figref{fig:pulls} show the pulls on \R for the different samples in this set of submitted grid jobs. The distributions in general are very close to unit-Gaussians, with some slight deviations in the RQ-Method cases leading to slight pulls on \R. This should have a very minimal effect on the calculated correlation coefficients, but it should be kept in mind.
+Once all samples and seeds were fitted, the fit parameters were stored into \ROOT trees such that the parameters for the different methods and samples could be compared. Similarly, measures of the goodness-of-fit were also stored, in order to verify that the pseudo-data is being fit correctly. P value distributions for the four methods for one set of samples is shown in \figref{fig:pValues}. As shown the distributions are flat for the T and A-Methods, and are not flat for the R and Q-Methods. The Q-Method is understood to be non-flat due to the difference in bin width and point-width mentioned previously, while the origin of the non-flatness of the R-Method is unkwown at this time. \figref{fig:pulls} show the pulls on \R for the different samples in the same set of fitted samples. The distributions in general are very close to unit-Gaussians, with some slight deviations in the R and Q-Method cases leading to slight pulls on \R. This should have a very minimal effect on the calculated correlation coefficients, but it should be kept in mind.
 
 
 \begin{figure}[]
@@ -168,7 +164,7 @@ Similarly, measures of the goodness-of-fit are also stored, in order to verify t
         \includegraphics[width=\textwidth]{Example_QMethod_Fit}
         \caption{Q-Method}
     \end{subfigure}
-\caption[]{TARQ-Method fits to a sample generated from the 60h functions.}
+\caption[]{TARQ-Method fits to a sample generated from the 60h East-To-West Monte Carlo input.}
 \label{fig:sampleFits}
 \end{figure}
 %-T method was from Aaron, A method from David, R method from me, and Q from Tim
@@ -199,7 +195,7 @@ Similarly, measures of the goodness-of-fit are also stored, in order to verify t
         \includegraphics[width=\textwidth]{FFT_QMethod}
         \caption{Q-Method}
     \end{subfigure}
-\caption[]{FFTs of the TARQ fits shown in \figref{fig:sampleFits}.}
+\caption[]{FFTs of the fit residals for those fits shown in \figref{fig:sampleFits}.}
 \label{fig:FFTs}
 \end{figure}
 
@@ -229,7 +225,7 @@ Similarly, measures of the goodness-of-fit are also stored, in order to verify t
         \includegraphics[width=\textwidth]{PValues_QMethod}
         \caption{Q-Method}
     \end{subfigure}
-\caption[]{P-value distributions for one submission of grid jobs, hence the 1000 entries in the TAQ-Method plots, and the 1000 entries times 100 random seeds for the R-Method plot. The TA-Method p values are flat, while the RQ-Method p values are not. In the case of the Q-Method, the non-flat shape can be attributed to the difference in bin width and 2D function point-width. The origin of the non-flat shape for the R-Method is unknown at this time.}
+\caption[]{P value distributions for fits to 1000 samples, for the 60h East-To-West Monte Carlo pseudo-data. The T and A-Method p values are flat, while the R and Q-Method p values are not. In the case of the Q-Method, the non-flat shape can be attributed to the difference in bin width and 2D function point-width. The origin of the non-flat shape for the R-Method is unknown at this time.}
 \label{fig:pValues}
 \end{figure}
 
@@ -259,7 +255,7 @@ Similarly, measures of the goodness-of-fit are also stored, in order to verify t
         \includegraphics[width=\textwidth]{Rpull_QMethod}
         \caption{Q-Method}
     \end{subfigure}
-\caption[]{Pulls for the TARQ-Methods. The various distributions are close to unit-Gaussians, with differences in some RQ-Method cases which again is attributed to imperfect fits.}
+\caption[]{Pull distributions for fits to 1000 samples, for the 60h East-To-West Monte Carlo pseudo-data. The various distributions are close to unit-Gaussians, with differences in some R and Q-Method cases which is attributed to imperfect fits.}
 \label{fig:pulls}
 \end{figure}
 
