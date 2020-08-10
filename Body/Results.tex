@@ -8,12 +8,13 @@
 For the four different datasets, 1000 jobs each were submitted to the grid for the East-To-West and West-To-East variants. The number of jobs which completed varied only slightly, except for the EG dataset which had less completed jobs due to timing out on the grid, see \tabref{tab:jobs}. Once the jobs completed and the resulting pseudo-data was fitted, the \R values and other parameters were plotted against one another for different analyses and methods to determine the correlation coefficients. An example of such a scatter plot is shown in \figref{fig:scatterPlot}.
 
 
-\begin{table}
+\begin{table}[h]
 \centering
 \renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{0.4\linewidth}{@{\extracolsep{\fill}}lcc}
   \hline
     \multicolumn{3}{c}{\textbf{Jobs Completed}} \\
+  \hline
   	Dataset & East-To-West & West-To-East \\
   \hline
   	60h & 1000 & 999 \\
@@ -27,9 +28,9 @@ For the four different datasets, 1000 jobs each were submitted to the grid for t
 \end{table}
 
 
-\begin{figure}[]
+\begin{figure}[h]
 \centering
-\includegraphics[width=0.6\textwidth]{ScatterPlot}
+\includegraphics[width=0.5\textwidth]{ScatterPlot}
 \caption{Scatter plot between \R values for two different analyses, from jobs submitted for the 9d dataset East-To-West variant. The correlation coefficient between these two analyses is determined from this scatter plot, and the red line simply guides the eye.}
 \label{fig:scatterPlot}
 \end{figure}
@@ -46,9 +47,9 @@ where the variance on $z$ goes as
 and $n$ is the number of samples. By converting the correlation coefficients $r$ to $z$, finding the upper and lower ranges when adding or subtracting the square root of the variance, and then converting back to $r$, the statistical errors are determined, as described in Section~9.5 of G. Cowan's \textit{Statistical Data Analysis} \cite{Cowan}. The positive and negative statistical errors as a function of the correlation for 851 samples is shown in \figref{fig:statError}. To quote a single statistical error for each correlation coefficient, the average of the positive and negative errors is taken. This is fine since the numbers are so close to each other anyways. As shown the error is $\mathcal{O}(10^{-2}--10^{-4})$ depending on the correlation coefficient. This statistical error is sometimes comparable to the systematic errors, and sometimes much less. By definition the systematic error will include it's own statistical error since the two variants come from different grid job submissions, however the extra error is simply conservatively included in the systematic number. The total error is then the quadrature sum of the statistical and systematic errors as usual. (The errors on the correlation coefficients tend to get smaller as the correlations go up, including the systematic error.)
 
 
-\begin{figure}[]
+\begin{figure}[h]
 \centering
-\includegraphics[width=0.4\textwidth]{StatisticalError}
+\includegraphics[width=0.5\textwidth]{StatisticalError}
 \caption{Positive and negative statistical errors on the correlation coefficient as a function of the correlation, for 851 samples.}
 \label{fig:statError}
 \end{figure}
@@ -65,7 +66,7 @@ The correlation matrix between different analyzers for the EG dataset is shown i
 \begin{figure}[]
 \centering
 \includegraphics[width=\textwidth]{Avg_CorrelationMatrix_R_R}
-\caption{Correlation matrix between different analyzers and methods for the EG dataset. The correlations depicted here are those averaged from the East-To-West and West-To-East variants. describe here the names since I haven't yet and it's a little out of place}
+\caption{Correlation coefficient matrix for the \R values between different analyzers and methods for the EG dataset. Along the axes are the first names of the analyzers, the method used to fit the data, and then the fit parameter after the colon. The names here \{Nick, David, Aaron, Matteo, Bingzhi, Tim\} are the first names of the analyzers for the BU, CU, UW, EU, SJTU, and UK groups respectively.}
 \label{fig:corrMatAnalyzer}
 \end{figure}
 
@@ -365,16 +366,16 @@ In the proposed combination approach (cite David's collaboration talk here or ta
 
 
 
-\begin{figure}[]
+\begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{Avg_Recon_CorrelationMatrix_R_R}
-\caption{Correlation matrix between different reconstructions and methods for the EG dataset. The correlations depicted here are those averaged from the East-To-West and West-To-East variants. The \RE, R-Method, and Q-Method analyses are exactly the same as those in the other results tables since there was only one analysis in each of those cases. The \RW T and A-Method results were averaged among the four and three different analyses respectively.}
+\caption{Correlation coefficient matrix between different reconstructions and methods for the EG dataset. Along the axes are the reconstructions, the method used to fit the data, and then the fit parameter after the colon. The \RE, R-Method, and Q-Method analyses consist of the single respective analyses. The \RW T and A-Method analysis results were averaged among the four and three different analyses respectively before calculating the coefficients.}
 \label{fig:corrMatRecon}
 \end{figure}
 
 
 
-\begin{table}
+\begin{table}[h]
 \setlength\tabcolsep{15pt}
 \small
 \centering
