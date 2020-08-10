@@ -5,7 +5,27 @@
 \clearpage
 \section{Results}
 
-For the four different datasets, 1000 jobs each were submitted to the grid for the East-To-West and West-To-East variants. The number of jobs which completed varied only slightly, except for the EG dataset which had less completed jobs due to timing out on the grid, see \tabref{tab:jobs}. Once the jobs completed and the resulting pseudo-data was fitted, the \R values and other parameters were plotted against one another for different analyses and methods to determine the correlation coefficients. An example of such a scatter plot is shown in \figref{fig:scatterPlot}.
+For the four different datasets, 1000 jobs each were submitted to the grid for the East-To-West and West-To-East variants. The number of jobs which completed varied only slightly, except for the EG dataset which had less completed jobs due to timing out on the grid, see \tabref{tab:jobs}. All of the samples for the completed jobs were fit as described in the previous sections, the \R values were compared to each other among the different analyses, and the correlations calculated. The correlation matrix between different analyzers for the EG dataset is shown in \figref{fig:corrMatAnalyzer}. Tables for the correlation coefficients and their errors for all four datasets are given in Tables~\ref{tab:Corrs_60h_analyzer} through \ref{tab:Corrs_EG_analyzer}. 
+
+
+There is quite a few numbers listed throughout the table, some general summary points are as follows: 
+\begin{itemize}
+	\item{Correlations across datasets are very similar, barring some slight differences in random table entries which are usually within error of each other. An exception is for the Q-Method correlations for the 60h dataset which are around 2-3\% higher than in the rest of the datasets.}
+	\item{The T-A-Methods correlation is typically around 90\%, T-Q around 50\%, T-R around 99.6\%, and A-Q around 57\%, regardless of reconstruction.}
+	\item{The \RE-\RW correlations are ... for the same method and  ... across different methods}
+	\item{For the same recon same method, correlations are ...}
+	\item{The errors on the correlations are ... which are ... compared to the statistical errors as calculated previously}
+
+
+\end{itemize}
+
+
+
+% In general the differences between datasets don't appear particularly signed one way or another.
+% For comparisons between \RE and \RW see \secref{sub:reconcorrelations}.
+
+
+
 
 
 \begin{table}[h]
@@ -26,40 +46,6 @@ For the four different datasets, 1000 jobs each were submitted to the grid for t
 \caption[]{Number of jobs completed out of 1000 after submission to the grid for the East-To-West and West-To-East variants. When calculating the statistical errors on the calculated correlation coefficients, the smaller of the two numbers corresponding the larger error is used.}
 \label{tab:jobs}
 \end{table}
-
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.5\textwidth]{ScatterPlot}
-\caption{Scatter plot between \R values for two different analyses, from jobs submitted for the 9d dataset East-To-West variant. The correlation coefficient between these two analyses is determined from this scatter plot, and the red line simply guides the eye.}
-\label{fig:scatterPlot}
-\end{figure}
-
-
-The final correlation coefficients are calculated as the average of the correlation coefficients produced with the East-To-West and West-To-East variants. The systematic errors on the coefficients are determined as the difference between the average correlation coefficients and either of the two variants. The statistical error on the determined correlation coefficients is dependent on the number of points or samples used to calculate the coefficients as well as the coefficients themselves. These statistical errors are calculated via the Fisher-$z$ transform of the correlation coefficients $r$,
-\begin{align}
-	z = \tanh^{-1}r,
-\end{align}
-where the variance on $z$ goes as
-\begin{align}
-	V(z) = \frac{1}{n-3},
-\end{align}
-and $n$ is the number of samples. By converting the correlation coefficients $r$ to $z$, finding the upper and lower ranges when adding or subtracting the square root of the variance, and then converting back to $r$, the statistical errors are determined, as described in Section~9.5 of G. Cowan's \textit{Statistical Data Analysis} \cite{Cowan}. The positive and negative statistical errors as a function of the correlation for 851 samples is shown in \figref{fig:statError}. To quote a single statistical error for each correlation coefficient, the average of the positive and negative errors is taken. This is fine since the numbers are so close to each other anyways. As shown the error is $\mathcal{O}(10^{-2}--10^{-4})$ depending on the correlation coefficient. This statistical error is sometimes comparable to the systematic errors, and sometimes much less. By definition the systematic error will include it's own statistical error since the two variants come from different grid job submissions, however the extra error is simply conservatively included in the systematic number. The total error is then the quadrature sum of the statistical and systematic errors as usual. (The errors on the correlation coefficients tend to get smaller as the correlations go up, including the systematic error.)
-
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.5\textwidth]{StatisticalError}
-\caption{Positive and negative statistical errors on the correlation coefficient as a function of the correlation, for 851 samples.}
-\label{fig:statError}
-\end{figure}
-
-
-
-The correlation matrix between different analyzers for the EG dataset is shown in \figref{fig:corrMatAnalyzer}. Tables for the correlation coefficients and their errors for all four datasets are given in Tables~\ref{tab:Corrs_60h_analyzer} through \ref{tab:Corrs_EG_analyzer}. In general the correlations when compared across datasets are very similar, barring some slight differences in random table entries. In general the differences between datasets don't appear particularly signed one way or another. The correlations between the T and A-Methods are typically around 90\%, between T and Q-Methods is around 50\%, between A and Q-Methods is around 57-60\%, and between T and R-Methods is around 99.6\%. For comparisons between \RE and \RW see \secref{sub:reconcorrelations}.
-
-
--summarize some main facets about the correlations and errors
 
 
 
