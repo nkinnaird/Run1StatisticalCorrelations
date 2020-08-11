@@ -6,15 +6,11 @@
 \section{Results}
 
 
+Correlation coefficients were calculated among all analyzers, all analyses, for all datasets, and between all parameters. The correlation coefficients between the \R values are presented here, since they are of the most interest\footnote{Correlation coefficients between other fit parameters aren't particularly useful. One case of interest was the \R$-\phi$ correlations for a potential multi-parameter combination.}. The correlation matrix between different analyzers for the EG dataset is shown in \figref{fig:corrMatAnalyzer}. In the favored proposed combination approach, a staged averaging method \cite{CombinationMeeting,DavidCollabTalk}, the correlation coefficients between the different reconstructions are needed. In order to determine these the \R values between the \RW T and A-Methods were averaged among the four and three different analyses respectively, before populating the scatter plots and determining the correlation coefficients\footnote{It should be noted as well that other combinations of different methods, with different averaging on the \R paramaters, were made in order to provide varying correlation coefficients for the combination procedure to give a scale of different numbers for different results.}. The correlation matrix for the EG dataset at this reconstruction level is shown in \figref{fig:corrMatRecon}. Tables for the correlation coefficients at the analyzer level and their errors for all four datasets are given in Tables~\ref{tab:Corrs_60h_analyzer} through \ref{tab:Corrs_EG_analyzer}. Tables for the correlation coefficients at the reconstruction level and their errors for all four datasets are given in Tables ~\ref{tab:Corrs_60h_recon} through \ref{tab:Corrs_EG_recon}.
 
 
-- mention that only results for R will be shown here, though it is possible that other correlations can be determined, and that this was used in preliminary studies doing a multiparamter combination with R and phi
 
-
-All of the samples for the completed jobs were fit as described in the previous sections, the \R values were compared to each other among the different analyses, and the correlations calculated. The correlation matrix between different analyzers for the EG dataset is shown in \figref{fig:corrMatAnalyzer}. Tables for the correlation coefficients and their errors for all four datasets are given in Tables~\ref{tab:Corrs_60h_analyzer} through \ref{tab:Corrs_EG_analyzer}. 
-
-
-There is quite a few numbers listed throughout the table, some general summary points are as follows: 
+There are quite a few numbers listed throughout the tables. In order to facilitate the processing of all the information, some general summary points are as follows: 
 \begin{itemize}
 	\item{Correlations across datasets are very similar, barring some slight differences in random table entries which are usually within error of each other. An exception is for the Q-Method correlations for the 60h dataset which are around 2-3\% higher than in the rest of the datasets.}
 	\item{The T-A-Methods correlation is typically around 90\%, T-Q around 50\%, T-R around 99.6\%, and A-Q around 57\%, regardless of reconstruction.}
@@ -25,21 +21,27 @@ There is quite a few numbers listed throughout the table, some general summary p
 
 \end{itemize}
 
-
+The correlation between the \RE and \RW T-Methods is around the 95\% level, while that for the A-Methods is around the 98.8\% level. For the A-Method comparison errors, the errors are all less than 0.1\%.
 
 % In general the differences between datasets don't appear particularly signed one way or another.
 % For comparisons between \RE and \RW see \secref{sub:reconcorrelations}.
 
 
-
-
-
 \begin{figure}[]
 \centering
 \includegraphics[width=\textwidth]{Avg_CorrelationMatrix_R_R}
-\caption{Correlation coefficient matrix for the \R values between different analyzers and methods for the EG dataset. Along the axes are the first names of the analyzers, the method used to fit the data, and then the fit parameter after the colon. The names here \{Nick, David, Aaron, Matteo, Bingzhi, Tim\} are the first names of the analyzers for the BU, CU, UW, EU, SJTU, and UK groups respectively.}
+\caption{Correlation coefficient matrix for the \R values between different analyzers and methods for the EG dataset. Along the axes are the first names of the analyzers, the method used to fit the data, and then the fit parameter after the colon. The names here \{Nick, David, Aaron, Matteo, Bingzhi, Tim\} are the first names of the analyzers for the BU, CU, UW, EU, SJTU, and UK groups respectively. The Z axis label of ``Corr Avg'' stands for the fact that the correlations are averages of the East-To-West and West-To-East variants of the Monte Carlo.}
 \label{fig:corrMatAnalyzer}
 \end{figure}
+
+\begin{figure}[]
+\centering
+\includegraphics[width=\textwidth]{Avg_Recon_CorrelationMatrix_R_R}
+\caption{Correlation coefficient matrix between different reconstructions and methods for the EG dataset. Along the axes are the reconstructions, the method used to fit the data, and then the fit parameter after the colon. The \RE, R-Method, and Q-Method analyses consist of the single respective analyses. The \RW T and A-Method analysis results were averaged among the four and three different analyses respectively before calculating the coefficients. The Z axis label of ``Corr Avg'' stands for the fact that the correlations are averages of the East-To-West and West-To-East variants of the Monte Carlo.}
+\label{fig:corrMatRecon}
+\end{figure}
+
+
 
 
 % 60h
@@ -168,6 +170,121 @@ There is quite a few numbers listed throughout the table, some general summary p
 
 
 
+% recon correlations below here
+
+% \subsection{Reconstruction Level Correlations}
+% \label{sub:reconcorrelations}
+
+
+
+
+
+
+
+
+
+
+
+\begin{table}[h]
+\setlength\tabcolsep{15pt}
+\footnotesize
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{0.8\linewidth}{@{\extracolsep{\fill}}lXXXXXX}
+  \toprule
+  	\multicolumn{7}{c}{{\normalsize 60h Correlation Coefficients -- Recon. Level}} \\
+  \midrule
+  	       & RE T & RE A & RW T & RW A & RW R & \quad Q \\
+  \midrule
+	RE T   & 1.0000 0.0000 & 0.9043 0.0059 & 0.9467 0.0036 & 0.8984 0.0065 & 0.9418 0.0040 & 0.5248 0.0289  \\
+	RE A   & 0.9043 0.0059 & 1.0000 0.0000 & 0.9033 0.0060 & 0.9886 0.0008 & 0.8969 0.0065 & 0.5926 0.0306  \\
+	RW T   & 0.9467 0.0036 & 0.9033 0.0060 & 1.0000 0.0000 & 0.9097 0.0055 & 0.9961 0.0003 & 0.5348 0.0320  \\
+	RW A   & 0.8984 0.0065 & 0.9886 0.0008 & 0.9097 0.0055 & 1.0000 0.0000 & 0.9028 0.0059 & 0.5930 0.0359  \\
+	RW R   & 0.9418 0.0040 & 0.8969 0.0065 & 0.9961 0.0003 & 0.9028 0.0059 & 1.0000 0.0000 & 0.5256 0.0306  \\
+	Q      & 0.5248 0.0289 & 0.5926 0.0306 & 0.5348 0.0320 & 0.5930 0.0359 & 0.5256 0.0306 & 1.0000 0.0000  \\
+  \bottomrule
+\end{tabularx}
+\caption[]{Correlation coefficients between \R values for the 60h dataset, at the reconstruction level after the \RW T-Method and A-Method \R values were averaged among the different analyzers. In each table cell, the top number is the correlation coefficient and the bottom number is the error on the coefficient.}
+\label{tab:Corrs_60h_recon}
+\end{table}
+
+
+
+\begin{table}
+\setlength\tabcolsep{15pt}
+\footnotesize
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{0.8\linewidth}{@{\extracolsep{\fill}}lXXXXXX}
+  \toprule
+  	\multicolumn{7}{c}{{\normalsize HK Correlation Coefficients -- Recon. Level}} \\
+  \midrule
+  	       & RE T & RE A & RW T & RW A & RW R & \quad Q \\
+  \midrule
+	RE T   & 1.0000 0.0000 & 0.8968 0.0068 & 0.9482 0.0037 & 0.8896 0.0066 & 0.9439 0.0042 & 0.4913 0.0266  \\
+	RE A   & 0.8968 0.0068 & 1.0000 0.0000 & 0.8946 0.0075 & 0.9883 0.0009 & 0.8907 0.0081 & 0.5635 0.0256  \\
+	RW T   & 0.9482 0.0037 & 0.8946 0.0075 & 1.0000 0.0000 & 0.9018 0.0063 & 0.9962 0.0002 & 0.5037 0.0238  \\
+	RW A   & 0.8896 0.0066 & 0.9883 0.0009 & 0.9018 0.0063 & 1.0000 0.0000 & 0.8975 0.0068 & 0.5643 0.0250  \\
+	RW R   & 0.9439 0.0042 & 0.8907 0.0081 & 0.9962 0.0002 & 0.8975 0.0068 & 1.0000 0.0000 & 0.4959 0.0249  \\
+	Q      & 0.4913 0.0266 & 0.5635 0.0256 & 0.5037 0.0238 & 0.5643 0.0250 & 0.4959 0.0249 & 1.0000 0.0000  \\
+  \bottomrule
+\end{tabularx}
+\caption[]{Correlation coefficients between \R values for the HK dataset, at the reconstruction level after the \RW T-Method and A-Method \R values were averaged among the different analyzers. In each table cell, the top number is the correlation coefficient and the bottom number is the error on the coefficient.}
+\label{tab:Corrs_HK_recon}
+\end{table}
+
+
+\begin{table}
+\setlength\tabcolsep{15pt}
+\footnotesize
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{0.8\linewidth}{@{\extracolsep{\fill}}lXXXXXX}
+  \toprule
+  	\multicolumn{7}{c}{{\normalsize 9d Correlation Coefficients -- Recon. Level}} \\
+  \midrule
+  	       & RE T & RE A & RW T & RW A & RW R & \quad Q \\
+  \midrule
+	RE T   & 1.0000 0.0000 & 0.9002 0.0064 & 0.9471 0.0035 & 0.8939 0.0065 & 0.9414 0.0040 & 0.5000 0.0248  \\
+	RE A   & 0.9002 0.0064 & 1.0000 0.0000 & 0.8940 0.0103 & 0.9876 0.0009 & 0.8885 0.0118 & 0.5710 0.0213  \\
+	RW T   & 0.9471 0.0035 & 0.8940 0.0103 & 1.0000 0.0000 & 0.9027 0.0088 & 0.9963 0.0003 & 0.4985 0.0249  \\
+	RW A   & 0.8939 0.0065 & 0.9876 0.0009 & 0.9027 0.0088 & 1.0000 0.0000 & 0.8969 0.0097 & 0.5713 0.0214  \\
+	RW R   & 0.9414 0.0040 & 0.8885 0.0118 & 0.9963 0.0003 & 0.8969 0.0097 & 1.0000 0.0000 & 0.4888 0.0265  \\
+	Q      & 0.5000 0.0248 & 0.5710 0.0213 & 0.4985 0.0249 & 0.5713 0.0214 & 0.4888 0.0265 & 1.0000 0.0000  \\
+  \bottomrule
+\end{tabularx}
+\caption[]{Correlation coefficients between \R values for the 9d dataset, at the reconstruction level after the \RW T-Method and A-Method \R values were averaged among the different analyzers. In each table cell, the top number is the correlation coefficient and the bottom number is the error on the coefficient.}
+\label{tab:Corrs_9d_recon}
+\end{table}
+
+
+\begin{table}
+\setlength\tabcolsep{15pt}
+\footnotesize
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{0.8\linewidth}{@{\extracolsep{\fill}}lXXXXXX}
+  \toprule
+  	\multicolumn{7}{c}{{\normalsize EG Correlation Coefficients -- Recon. Level}} \\
+  \midrule
+  	       & RE T & RE A & RW T & RW A & RW R & \quad Q \\
+  \midrule
+	RE T   & 1.0000 0.0000 & 0.9099 0.0064 & 0.9506 0.0039 & 0.9052 0.0062 & 0.9451 0.0045 & 0.5087 0.0270  \\
+	RE A   & 0.9099 0.0064 & 1.0000 0.0000 & 0.9012 0.0115 & 0.9887 0.0008 & 0.8955 0.0122 & 0.5761 0.0230  \\
+	RW T   & 0.9506 0.0039 & 0.9012 0.0115 & 1.0000 0.0000 & 0.9098 0.0104 & 0.9963 0.0003 & 0.5110 0.0273  \\
+	RW A   & 0.9052 0.0062 & 0.9887 0.0008 & 0.9098 0.0104 & 1.0000 0.0000 & 0.9040 0.0112 & 0.5737 0.0232  \\
+	RW R   & 0.9451 0.0045 & 0.8955 0.0122 & 0.9963 0.0003 & 0.9040 0.0112 & 1.0000 0.0000 & 0.5034 0.0275  \\
+	Q      & 0.5087 0.0270 & 0.5761 0.0230 & 0.5110 0.0273 & 0.5737 0.0232 & 0.5034 0.0275 & 1.0000 0.0000  \\
+  \bottomrule
+\end{tabularx}
+\caption[]{Correlation coefficients between \R values for the EG dataset, at the reconstruction level after the \RW T-Method and A-Method \R values were averaged among the different analyzers. In each table cell, the top number is the correlation coefficient and the bottom number is the error on the coefficient.}
+\label{tab:Corrs_EG_recon}
+\end{table}
+
+
+
+
+\clearpage
 \subsection{Sigma Differences}
 
 % -maybe use the word pull instead of sigma here somehow?
@@ -183,8 +300,6 @@ where $\sigma_{i}$ and $\sigma_{j}$ are the errors of the two analyses, and $r_{
 
 
 % -make sure I use the same notation for the correlation coefficients everywhere, r probably
-
-
 
 
 
@@ -326,121 +441,6 @@ where $\sigma_{i}$ and $\sigma_{j}$ are the errors of the two analyses, and $r_{
 \label{fig:AllSigmas}
 \end{figure}
 
-
-
-
-\clearpage
-\subsection{Reconstruction Level Correlations}
-\label{sub:reconcorrelations}
-
-In the proposed combination approach (cite David's collaboration talk here or task force discussion?), the correlation coefficients between the different reconstructions are needed. In order to determine these the \R values between the \RW T and A-Methods were averaged among the four and three different analyses respectively, before populating the scatter plots and determining the correlation coefficients\footnote{It should be noted as well that other combinations of different methods, with different averaging on the \R paramaters, were made in order to provide varying correlation coefficients for the combination procedure to give a scale of different numbers for different results.}. The correlation matrix for the EG dataset at the reconstruction level is shown in \figref{fig:corrMatRecon}. Tables~\ref{tab:Corrs_60h_recon} through \ref{tab:Corrs_EG_recon} give the correlations and the errors on the correlations for all four datasets. The correlation between the \RE and \RW T-Methods is around the 95\% level, while that for the A-Methods is around the 98.8\% level. For the A-Method comparison errors, the errors are all less than 0.1\%.
-
-
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\textwidth]{Avg_Recon_CorrelationMatrix_R_R}
-\caption{Correlation coefficient matrix between different reconstructions and methods for the EG dataset. Along the axes are the reconstructions, the method used to fit the data, and then the fit parameter after the colon. The \RE, R-Method, and Q-Method analyses consist of the single respective analyses. The \RW T and A-Method analysis results were averaged among the four and three different analyses respectively before calculating the coefficients.}
-\label{fig:corrMatRecon}
-\end{figure}
-
-
-
-\begin{table}[h]
-\setlength\tabcolsep{15pt}
-\small
-\centering
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{0.8\linewidth}{@{\extracolsep{\fill}}lXXXXXX}
-  \toprule
-  	\multicolumn{7}{c}{{\normalsize 60h Correlation Coefficients -- Recon. Level}} \\
-  \midrule
-  	       & RE T & RE A & RW T & RW A & RW R & \quad Q \\
-  \midrule
-	RE T   & 1.0000 0.0000 & 0.9043 0.0059 & 0.9467 0.0036 & 0.8984 0.0065 & 0.9418 0.0040 & 0.5248 0.0289  \\
-	RE A   & 0.9043 0.0059 & 1.0000 0.0000 & 0.9033 0.0060 & 0.9886 0.0008 & 0.8969 0.0065 & 0.5926 0.0306  \\
-	RW T   & 0.9467 0.0036 & 0.9033 0.0060 & 1.0000 0.0000 & 0.9097 0.0055 & 0.9961 0.0003 & 0.5348 0.0320  \\
-	RW A   & 0.8984 0.0065 & 0.9886 0.0008 & 0.9097 0.0055 & 1.0000 0.0000 & 0.9028 0.0059 & 0.5930 0.0359  \\
-	RW R   & 0.9418 0.0040 & 0.8969 0.0065 & 0.9961 0.0003 & 0.9028 0.0059 & 1.0000 0.0000 & 0.5256 0.0306  \\
-	Q      & 0.5248 0.0289 & 0.5926 0.0306 & 0.5348 0.0320 & 0.5930 0.0359 & 0.5256 0.0306 & 1.0000 0.0000  \\
-  \bottomrule
-\end{tabularx}
-\caption[]{Correlation coefficients between \R values for the 60h dataset, at the reconstruction level after the \RW T-Method and A-Method \R values were averaged among the different analyzers. In each table cell, the top number is the correlation coefficient and the bottom number is the error on the coefficient.}
-\label{tab:Corrs_60h_recon}
-\end{table}
-
-
-
-\begin{table}
-\setlength\tabcolsep{15pt}
-\small
-\centering
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{0.8\linewidth}{@{\extracolsep{\fill}}lXXXXXX}
-  \toprule
-  	\multicolumn{7}{c}{{\normalsize HK Correlation Coefficients -- Recon. Level}} \\
-  \midrule
-  	       & RE T & RE A & RW T & RW A & RW R & \quad Q \\
-  \midrule
-	RE T   & 1.0000 0.0000 & 0.8968 0.0068 & 0.9482 0.0037 & 0.8896 0.0066 & 0.9439 0.0042 & 0.4913 0.0266  \\
-	RE A   & 0.8968 0.0068 & 1.0000 0.0000 & 0.8946 0.0075 & 0.9883 0.0009 & 0.8907 0.0081 & 0.5635 0.0256  \\
-	RW T   & 0.9482 0.0037 & 0.8946 0.0075 & 1.0000 0.0000 & 0.9018 0.0063 & 0.9962 0.0002 & 0.5037 0.0238  \\
-	RW A   & 0.8896 0.0066 & 0.9883 0.0009 & 0.9018 0.0063 & 1.0000 0.0000 & 0.8975 0.0068 & 0.5643 0.0250  \\
-	RW R   & 0.9439 0.0042 & 0.8907 0.0081 & 0.9962 0.0002 & 0.8975 0.0068 & 1.0000 0.0000 & 0.4959 0.0249  \\
-	Q      & 0.4913 0.0266 & 0.5635 0.0256 & 0.5037 0.0238 & 0.5643 0.0250 & 0.4959 0.0249 & 1.0000 0.0000  \\
-  \bottomrule
-\end{tabularx}
-\caption[]{Correlation coefficients between \R values for the HK dataset, at the reconstruction level after the \RW T-Method and A-Method \R values were averaged among the different analyzers. In each table cell, the top number is the correlation coefficient and the bottom number is the error on the coefficient.}
-\label{tab:Corrs_HK_recon}
-\end{table}
-
-
-\begin{table}
-\setlength\tabcolsep{15pt}
-\small
-\centering
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{0.8\linewidth}{@{\extracolsep{\fill}}lXXXXXX}
-  \toprule
-  	\multicolumn{7}{c}{{\normalsize 9d Correlation Coefficients -- Recon. Level}} \\
-  \midrule
-  	       & RE T & RE A & RW T & RW A & RW R & \quad Q \\
-  \midrule
-	RE T   & 1.0000 0.0000 & 0.9002 0.0064 & 0.9471 0.0035 & 0.8939 0.0065 & 0.9414 0.0040 & 0.5000 0.0248  \\
-	RE A   & 0.9002 0.0064 & 1.0000 0.0000 & 0.8940 0.0103 & 0.9876 0.0009 & 0.8885 0.0118 & 0.5710 0.0213  \\
-	RW T   & 0.9471 0.0035 & 0.8940 0.0103 & 1.0000 0.0000 & 0.9027 0.0088 & 0.9963 0.0003 & 0.4985 0.0249  \\
-	RW A   & 0.8939 0.0065 & 0.9876 0.0009 & 0.9027 0.0088 & 1.0000 0.0000 & 0.8969 0.0097 & 0.5713 0.0214  \\
-	RW R   & 0.9414 0.0040 & 0.8885 0.0118 & 0.9963 0.0003 & 0.8969 0.0097 & 1.0000 0.0000 & 0.4888 0.0265  \\
-	Q      & 0.5000 0.0248 & 0.5710 0.0213 & 0.4985 0.0249 & 0.5713 0.0214 & 0.4888 0.0265 & 1.0000 0.0000  \\
-  \bottomrule
-\end{tabularx}
-\caption[]{Correlation coefficients between \R values for the 9d dataset, at the reconstruction level after the \RW T-Method and A-Method \R values were averaged among the different analyzers. In each table cell, the top number is the correlation coefficient and the bottom number is the error on the coefficient.}
-\label{tab:Corrs_9d_recon}
-\end{table}
-
-
-\begin{table}
-\setlength\tabcolsep{15pt}
-\small
-\centering
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{0.8\linewidth}{@{\extracolsep{\fill}}lXXXXXX}
-  \toprule
-  	\multicolumn{7}{c}{{\normalsize EG Correlation Coefficients -- Recon. Level}} \\
-  \midrule
-  	       & RE T & RE A & RW T & RW A & RW R & \quad Q \\
-  \midrule
-	RE T   & 1.0000 0.0000 & 0.9099 0.0064 & 0.9506 0.0039 & 0.9052 0.0062 & 0.9451 0.0045 & 0.5087 0.0270  \\
-	RE A   & 0.9099 0.0064 & 1.0000 0.0000 & 0.9012 0.0115 & 0.9887 0.0008 & 0.8955 0.0122 & 0.5761 0.0230  \\
-	RW T   & 0.9506 0.0039 & 0.9012 0.0115 & 1.0000 0.0000 & 0.9098 0.0104 & 0.9963 0.0003 & 0.5110 0.0273  \\
-	RW A   & 0.9052 0.0062 & 0.9887 0.0008 & 0.9098 0.0104 & 1.0000 0.0000 & 0.9040 0.0112 & 0.5737 0.0232  \\
-	RW R   & 0.9451 0.0045 & 0.8955 0.0122 & 0.9963 0.0003 & 0.9040 0.0112 & 1.0000 0.0000 & 0.5034 0.0275  \\
-	Q      & 0.5087 0.0270 & 0.5761 0.0230 & 0.5110 0.0273 & 0.5737 0.0232 & 0.5034 0.0275 & 1.0000 0.0000  \\
-  \bottomrule
-\end{tabularx}
-\caption[]{Correlation coefficients between \R values for the EG dataset, at the reconstruction level after the \RW T-Method and A-Method \R values were averaged among the different analyzers. In each table cell, the top number is the correlation coefficient and the bottom number is the error on the coefficient.}
-\label{tab:Corrs_EG_recon}
-\end{table}
 
 
 
