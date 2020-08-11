@@ -5,7 +5,13 @@
 \clearpage
 \section{Results}
 
-For the four different datasets, 1000 jobs each were submitted to the grid for the East-To-West and West-To-East variants. The number of jobs which completed varied only slightly, except for the EG dataset which had less completed jobs due to timing out on the grid, see \tabref{tab:jobs}. All of the samples for the completed jobs were fit as described in the previous sections, the \R values were compared to each other among the different analyses, and the correlations calculated. The correlation matrix between different analyzers for the EG dataset is shown in \figref{fig:corrMatAnalyzer}. Tables for the correlation coefficients and their errors for all four datasets are given in Tables~\ref{tab:Corrs_60h_analyzer} through \ref{tab:Corrs_EG_analyzer}. 
+
+
+
+- mention that only results for R will be shown here, though it is possible that other correlations can be determined, and that this was used in preliminary studies doing a multiparamter combination with R and phi
+
+
+All of the samples for the completed jobs were fit as described in the previous sections, the \R values were compared to each other among the different analyses, and the correlations calculated. The correlation matrix between different analyzers for the EG dataset is shown in \figref{fig:corrMatAnalyzer}. Tables for the correlation coefficients and their errors for all four datasets are given in Tables~\ref{tab:Corrs_60h_analyzer} through \ref{tab:Corrs_EG_analyzer}. 
 
 
 There is quite a few numbers listed throughout the table, some general summary points are as follows: 
@@ -25,27 +31,6 @@ There is quite a few numbers listed throughout the table, some general summary p
 % For comparisons between \RE and \RW see \secref{sub:reconcorrelations}.
 
 
-
-
-
-\begin{table}[h]
-\centering
-\renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.4\linewidth}{@{\extracolsep{\fill}}lcc}
-  \hline
-    \multicolumn{3}{c}{\textbf{Jobs Completed}} \\
-  \hline
-  	Dataset & East-To-West & West-To-East \\
-  \hline
-  	60h & 1000 & 999 \\
-  	HK & 1000 & 999 \\
-  	9d & 1000 & 1000 \\
-  	EG & 851 & 856 \\ 
-  \hline
-\end{tabularx}
-\caption[]{Number of jobs completed out of 1000 after submission to the grid for the East-To-West and West-To-East variants. When calculating the statistical errors on the calculated correlation coefficients, the smaller of the two numbers corresponding the larger error is used.}
-\label{tab:jobs}
-\end{table}
 
 
 
