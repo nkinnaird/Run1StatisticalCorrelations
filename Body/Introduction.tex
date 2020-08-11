@@ -6,15 +6,15 @@
 \section{Introduction}
 
 
-The \Rone \wa analysis effort consisted of six independent groups conducting a total of eleven different analyses, for each of the four \Rone datasets. These groups included Boston University (BU), Cornell University (CU), University of Washington (UW), a collaborative group from several European institutions under the moniker `Europa' (EU), Shanghai Jiao Tong University (SJTU), and the University of Kentucky (UK). Each analysis was carried out independently of the rest. The groups from CU, UW, EU, and SJTU all performed T and A-Method analyses, while the group from BU performed T and R-Method analyses. The CU group utilized the \RE positron reconstruction, while the rest (barring the UK group) utilized the \RW reconstruction. The group from UK performed a Q-Method analysis, and therefore did not use either the \RE or \RW positron reconstructions. Details on the \RE and \RW positron reconstructions can be found in the theses of D. Sweigart \cite{phdthesis:2020Sweigart} and A. Fienberg \cite{phdthesis:2019Fienberg} respectively, where they were the ones who developed the two reconstructions. Within each of the analyses, parameters were chosen according to preference or analysis specifics. These parameters correspond to energy thresholds for the various methods, binning parameters, and fit start and times. \tabref{tab:analyzerParameters} gives a summary of the different analyses for the different groups, and the associated parameters\footnote{Groups used different pileup methods with varying parameters as well, however those details are not included here.}. References for the specifics of the analyses are included in the table.
+The \Rone \wa analysis effort consisted of six independent groups conducting a total of eleven different analyses for each of the four \Rone datasets. These groups included Boston University (BU), Cornell University (CU), University of Washington (UW), a collaborative group from several European institutions under the moniker `Europa' (EU), Shanghai Jiao Tong University (SJTU), and the University of Kentucky (UK). Each analysis was carried out independently of the rest. The groups from CU, UW, EU, and SJTU all performed T and A-Method analyses, while the group from BU performed T and R-Method analyses. The CU group utilized the \RE positron reconstruction, while the rest (barring the UK group) utilized the \RW reconstruction. The group from UK performed a Q-Method analysis, and therefore did not use either the \RE or \RW positron reconstructions. Details on the \RE and \RW positron reconstructions can be found in the theses of D. Sweigart \cite{phdthesis:2020Sweigart} and A. Fienberg \cite{phdthesis:2019Fienberg} respectively. Within each of the analyses, parameters were chosen according to preference or analysis specifics. These parameters correspond to energy thresholds for the various methods, binning parameters, and fit start and end times. \tabref{tab:analyzerParameters} gives a summary of the different analyses for the different groups and the associated parameters\footnote{Different pileup methods were used by the groups with varying parameters, however those details are not included here.}. References for the specifics of the analyses are included in the table.
 
 
-The four datasets for the \Rone analysis consisted of the 60h, HighKick, 9d, and Endgame datasets. These are sometimes abbreviated in different manners, such as 60h, HK, 9d, EG, or 1a, 1b, 1c, 1d respectively. The former is used at times in this document. The final, commonly blinded, best-fit \R values for all eleven analyses to all four datasets are given in \tabref{tab:analysisRValues}, where the equation
+The four datasets for the \Rone analysis consisted of the 60h, HighKick, 9d, and Endgame datasets. These are sometimes abbreviated in different manners, such as 60h, HK, 9d, EG, or 1a, 1b, 1c, 1d respectively. The former is used at times in this document. The final, commonly blinded, best-fit \R values for all eleven analyses of all four datasets are given in \tabref{tab:analysisRValues}, where the equation
 \begin{align}
   \omega_{a} = 2\pi \cdot \SI{0.2291}{MHz} \cdot (1 + (R - \Delta R) \times 10^{-6}),
 \label{eq:wa}
 \end{align}
-gives the relationship between \wa and \R, and $\Delta R$ is the common blinding offset. In order to provide a single \wa number per dataset that will feed into the final determination of \amu, these \R values need to be combined in some way. Depending on the combination methodology adopted, correlation coefficients between the different analyses may be necessary in order to properly combine the results. These correlation coefficients will depend upon the specific analysis types, reconstructions, and parameters used in the various analyses, as given in \tabref{tab:analyzerParameters}. Preliminary versions of the correlation coefficients and results using one combination approach were determined by A. Keshavarzi in early 2020 \cite{AlexCombinationNote}\footnote{This note also provides a nice short summary of the different datasets, methods, and reconstructions used in the analyses}. The correlation coefficients therein were determined from a Monte Carlo simulation built from first principles. Since that work, a better Monte Carlo simulation was developed which included more information from real data as well as the individual analysis parameters, and the correlation coefficients were re-estimated. Those new correlation coefficients are presented here, along with details about the Monte Carlo.
+gives the relationship between \wa and \R, and $\Delta R$ is the common blinding offset. In order to provide a single \wa number per dataset that will feed into the final determination of \amu, these \R values need to be combined in some way. Depending on the combination methodology adopted, correlation coefficients between the different analyses may be necessary in order to properly combine the results. These correlation coefficients will depend upon the specific analysis types, reconstructions, and parameters used in the various analyses, as given in \tabref{tab:analyzerParameters}. Preliminary versions of the correlation coefficients and results using one combination approach were determined by A. Keshavarzi in early 2020 \cite{AlexCombinationNote}\footnote{This reference also provides a nice short summary of the different datasets, methods, and reconstructions used in the analyses}. The correlation coefficients therein were determined from a Monte Carlo simulation built from first principles. Since that work, a better Monte Carlo simulation has been developed which includes relevant information from real data and the individual analysis parameters. Using the updated Monte Carlo, the correlation coefficients were re-estimated. Those new correlation coefficients are presented here, along with details about the Monte Carlo.
 
 
 \begin{landscape}
@@ -24,7 +24,7 @@ gives the relationship between \wa and \R, and $\Delta R$ is the common blinding
 \renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{1\linewidth}{@{\extracolsep{\fill}}lcccccc}
   \hline
-    \multicolumn{7}{c}{\textbf{\Rone Analyses And Parameters}} \\
+    \multicolumn{7}{c}{\textbf{\Rone Analyses and Parameters}} \\
   \hline\hline
     Analysis Effort & \thead{Cornell U.} & \thead{U. Washington} & \thead{Europa} & \thead{Shanghai Jiao Tong U.} & \thead{Boston U.} & \thead{U. Kentucky} \\
     Abbreviation & CU & UW & EU & SJTU & BU & UK \\
@@ -46,7 +46,7 @@ gives the relationship between \wa and \R, and $\Delta R$ is the common blinding
     Fit End Time ($\mu$s) & 649.9152 & 649.92526 & 650.021 & 671.4 & 650.0644 & 215.5 \\ 
   \hline
 \end{tabularx}
-\caption[]{Individual analysis groups, the lead analyzers in those groups, and the methods and parameters in the respective analyses. Parameters provide via private communication and through discussion in the \Rone Combination Task Force \cite{CombinationMeeting}.}
+\caption[]{Individual analysis groups, the lead analyzers in those groups, and the methods and parameters in the respective analyses. Parameters provided via private communication and through discussion in the \Rone Combination Task Force \cite{CombinationMeeting}. Note that the EndGame dataset had a different fit start time compared to the rest, hence the additional row in the table.}
 \label{tab:analyzerParameters}
 \end{table}
 \end{landscape}
@@ -76,7 +76,7 @@ gives the relationship between \wa and \R, and $\Delta R$ is the common blinding
   UK Q   & $-29.2062$ & 2.0585 & $-24.9464$ & 1.7478 & $-26.2794$ & 1.4032 & $-27.9905$ & 1.2690 \\
   \bottomrule
 \end{tabularx}
-\caption[]{Best-fit results for \R and it's statistical error for the different \Rone datasets and analyses. \R here is commonly blinded, and still contains both a software and hardware blinding.}
+\caption[]{Best-fit results for \R and it's statistical error for the different analyses of the \Rone datasets, in units of ppm. \R is commonly blinded, and contains both a software and hardware blinding offset.}
 \label{tab:analysisRValues}
 \end{table}
 
