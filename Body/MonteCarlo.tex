@@ -282,7 +282,10 @@ Once all samples and seeds were fitted, the fit parameters were stored into \ROO
 \subsection{Calculating the Correlations and Errors}
 
 
-Once the generated pseudo-data was fitted, the \R values and other parameters were plotted against one another for different analyses and methods to determine the correlation coefficients. An example of such a scatter plot is shown in \figref{fig:scatterPlot}. The final correlation coefficients are calculated as the average of the correlation coefficients produced with the East-To-West and West-To-East variants. The systematic errors on the coefficients are determined as the difference between the average correlation coefficients and either of the two variants. The statistical error on the determined correlation coefficients is dependent on the number of points or samples used to calculate the coefficients as well as the coefficients themselves. These statistical errors are calculated via the Fisher-$z$ transform of the correlation coefficients $r$,
+Once the generated pseudo-data was fitted, the \R values and other parameters were plotted against one another for different analyses and methods to determine the correlation coefficients. An example of such a scatter plot is shown in \figref{fig:scatterPlot}. The final correlation coefficients are calculated as the average of the correlation coefficients produced with the East-To-West and West-To-East variants. The systematic errors on the coefficients are determined as the difference between the average correlation coefficients and either of the two variants. By construction this systematic error will include it's own statistical error since the two variants come from different grid job submissions, however the extra error is simply conservatively included in the systematic number.
+
+
+The statistical error on the determined correlation coefficients is dependent on the number of points or samples used to calculate the coefficients as well as the coefficients themselves. These statistical errors are calculated via the Fisher-$z$ transform of the correlation coefficients $r$,
 \begin{align}
     z = \tanh^{-1}r,
 \end{align}
@@ -290,9 +293,7 @@ where the variance on $z$ goes as
 \begin{align}
     V(z) = \frac{1}{n-3},
 \end{align}
-and $n$ is the number of samples. By converting the correlation coefficients $r$ to $z$, finding the upper and lower ranges when adding or subtracting the square root of the variance, and then converting back to $r$, the statistical errors are determined. This is described more fully in Section~9.5 of G. Cowan's \textit{Statistical Data Analysis} \cite{Cowan}. The positive and negative statistical errors as a function of the correlation for 851 samples is shown in \figref{fig:statError}. As shown the statistical error decreases as the correlation increases. To quote a single statistical error for each correlation coefficient, the average of the positive and negative errors was taken. As shown the error is $\mathcal{O}(10^{-2} - 10^{-4})$ depending on the correlation coefficient. The statistical errors are sometimes comparable to the systematic errors, and sometimes much less. By definition the systematic error will include it's own statistical error since the two variants come from different grid job submissions, however the extra error is simply conservatively included in the systematic number. The total error is then the quadrature sum of the statistical and systematic errors as usual.
-
-
+and $n$ is the number of samples. By converting the correlation coefficients $r$ to $z$, finding the upper and lower ranges when adding or subtracting the square root of the variance, and then converting back to $r$, the statistical errors are determined. This is described more fully in Section~9.5 of G. Cowan's \textit{Statistical Data Analysis} \cite{Cowan}. The positive and negative statistical errors as a function of the correlation for 851 samples is shown in \figref{fig:statError}. As shown the statistical error decreases as the correlation increases. To quote a single statistical error for each correlation coefficient, the average of the positive and negative errors was taken. As shown the error is $\mathcal{O}(10^{-2} - 10^{-4})$ depending on the correlation coefficient. At correlation coefficients of 90\%, 95\%, and 99\% the statistical errors are approximately 0.6\%, 0.3\% and less than 0.1\% respectively. The statistical errors are sometimes comparable to the systematic errors, and sometimes noticeably less. The total error is then the quadrature sum of the statistical and systematic errors as usual.
 
 
 \begin{figure}
@@ -301,7 +302,6 @@ and $n$ is the number of samples. By converting the correlation coefficients $r$
 \caption{Scatter plot between \R values for two different analyses, from jobs submitted for the 9d dataset East-To-West variant. The correlation coefficient between these two analyses is determined from this scatter plot, and the red line simply guides the eye.}
 \label{fig:scatterPlot}
 \end{figure}
-
 
 
 \begin{figure}

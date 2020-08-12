@@ -6,15 +6,15 @@
 \section{Results}
 
 
-Correlation coefficients were calculated among all analyzers, all analyses, for all datasets, and between all parameters. The correlation coefficients between the \R values are presented here, since they are of the most interest\footnote{Correlation coefficients between other fit parameters aren't particularly useful. One case of interest was the \R$-\phi$ correlations for a potential multi-parameter combination.}. The correlation matrix between different analyzers for the EG dataset is shown in \figref{fig:corrMatAnalyzer}. In the favored proposed combination approach, a staged averaging method \cite{CombinationMeeting,DavidCollabTalk}, the correlation coefficients between the different reconstructions are needed. In order to determine these the \R values between the \RW T and A-Methods were averaged among the four and three different analyses respectively, before populating the scatter plots and determining the correlation coefficients\footnote{It should be noted as well that other combinations of different methods, with different averaging on the \R paramaters, were made in order to provide varying correlation coefficients for the combination procedure to give a scale of different numbers for different results.}. The correlation matrix for the EG dataset at this reconstruction level is shown in \figref{fig:corrMatRecon}. Tables for the correlation coefficients at the analyzer level and their errors for all four datasets are given in Tables~\ref{tab:Corrs_60h_analyzer} through \ref{tab:Corrs_EG_analyzer}. Tables for the correlation coefficients at the reconstruction level and their errors for all four datasets are given in Tables ~\ref{tab:Corrs_60h_recon} through \ref{tab:Corrs_EG_recon}.
+Correlation coefficients were calculated among all analyzers, all analyses, for all datasets, and between all parameters. The correlation coefficients between the \R values are presented here, since they are of the most interest\footnote{Correlation coefficients between other fit parameters are not particularly useful. One case of interest is the \R$-\phi$ correlations for a potential multi-parameter combination.}. The correlation matrix between different analyzers for the EG dataset is shown in \figref{fig:corrMatAnalyzer}. In one of the proposed combination approaches, a staged averaging method \cite{CombinationMeeting,DavidCollabTalk}, the correlation coefficients between the different reconstructions are needed. In order to determine these the \R values between the \RW T and A-Methods were averaged among the four and three different analyses respectively, before populating the scatter plots and determining the correlation coefficients\footnote{It should be noted as well that other combinations of various methods were made, one example being a weighted average of \RW AR-Methods, in order to provide a variety of correlation coefficients for corresponding types of combinations.}. The correlation matrix for the EG dataset at this reconstruction level is shown in \figref{fig:corrMatRecon}. Tables for the correlation coefficients at the analyzer level and their errors for all four datasets are given in Tables~\ref{tab:Corrs_60h_analyzer} through \ref{tab:Corrs_EG_analyzer}. Tables for the correlation coefficients at the reconstruction level and their errors for all four datasets are given in Tables ~\ref{tab:Corrs_60h_recon} through \ref{tab:Corrs_EG_recon}.
 
 
 
 There are quite a few numbers listed throughout the tables. In order to facilitate the processing of all the information, some general summary points are as follows: 
 \begin{itemize}
-	\item{Correlations across datasets are very similar, barring some slight differences in random table entries which are usually within error of each other. An exception is for the Q-Method correlations for the 60h dataset which are around 2-3\% higher than in the rest of the datasets.}
-	\item{The T-A-Methods correlation is typically around 90\%, T-Q around 50\%, T-R around 99.6\%, and A-Q around 57\%, regardless of reconstruction. }
-	\item{Errors on the analyzer level correlation coefficients are typically around 0.5\% depending on the specific correlation. In general the larger the correlation the smaller the error. The errors on the Q-Method correlations are at the 2--3\% level. The errors on the T-R-Method correlations are typically sub 0.1\%. In general these errors are comparable with the pure statistical errors.}
+	\item{Correlations across the four datasets are very similar, barring some slight differences in random table entries which are usually within error of each other. An exception is for the Q-Method correlations for the 60h dataset which are around 2-3\% higher than in the rest of the datasets.}
+	\item{The T-A-Methods correlation is typically around 90\%, T-Q around 50\%, T-R around 99.6\%, A-R around 90\%, and A-Q around 57\%, regardless of reconstruction.}
+	\item{Errors on the analyzer level correlation coefficients are typically around 0.5\% depending on the specific correlation. In general the larger the correlation the smaller the error, just as dictated by the statistical error. Some exceptions include the errors on the Q-Method correlations which are at the 2--3\% level, and the errors on the T-R-Method correlations which are typically sub 0.1\%. In general most of the errors are at the same order as the pure statistical errors, though there are some cases where the total error is around 2 times larger.}
 	\item{The T-Method correlations between \RW analyzers is typically around 98--99\%, the A-Method correlations between \RW analyzers is typically around 99\%.}
 	\item{The \RE-\RW correlations are around 95\% for the T-Methods, and around 98.9\% for the A-Methods. The errors on these correlations are around 0.4 and 0.1\% respectively.}
 \end{itemize}
@@ -22,17 +22,17 @@ There are quite a few numbers listed throughout the tables. In order to facilita
 
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
 \includegraphics[width=\textwidth]{Avg_CorrelationMatrix_R_R}
-\caption{Correlation coefficient matrix for the \R values between different analyzers and methods for the EG dataset. Along the axes are the first names of the analyzers, the method used to fit the data, and then the fit parameter after the colon. The names here \{Nick, David, Aaron, Matteo, Bingzhi, Tim\} are the first names of the analyzers for the BU, CU, UW, EU, SJTU, and UK groups respectively. The Z axis label of ``Corr Avg'' stands for the fact that the correlations are averages of the East-To-West and West-To-East variants of the Monte Carlo.}
+\caption{Correlation coefficient matrix for the \R values between different analyzers and methods for the EG dataset. Along the axes are the first names of the analyzers, the method used to fit the data, and then the fit parameter after the colon. The names here \{Nick, David, Aaron, Matteo, Bingzhi, Tim\} are the first names of the analyzers for the BU, CU, UW, EU, SJTU, and UK groups respectively. The Z axis label ``Corr Avg'' stands for the fact that the correlations are averages of the East-To-West and West-To-East variants of the Monte Carlo.}
 \label{fig:corrMatAnalyzer}
 \end{figure}
 
-\begin{figure}[]
+\begin{figure}
 \centering
 \includegraphics[width=\textwidth]{Avg_Recon_CorrelationMatrix_R_R}
-\caption{Correlation coefficient matrix between different reconstructions and methods for the EG dataset. Along the axes are the reconstructions, the method used to fit the data, and then the fit parameter after the colon. The \RE, R-Method, and Q-Method analyses consist of the single respective analyses. The \RW T and A-Method analysis results were averaged among the four and three different analyses respectively before calculating the coefficients. The Z axis label of ``Corr Avg'' stands for the fact that the correlations are averages of the East-To-West and West-To-East variants of the Monte Carlo.}
+\caption{Correlation coefficient matrix between different reconstructions and methods for the EG dataset. Along the axes are the reconstructions, the method used to fit the data, and then the fit parameter after the colon. The \RE, R-Method, and Q-Method analyses consist of the single respective analyses. The \RW T and A-Method analysis results were averaged among the four and three different analyses respectively before calculating the coefficients. The Z axis label ``Corr Avg'' stands for the fact that the correlations are averages of the East-To-West and West-To-East variants of the Monte Carlo.}
 \label{fig:corrMatRecon}
 \end{figure}
 
@@ -170,9 +170,9 @@ There are quite a few numbers listed throughout the tables. In order to facilita
 % \subsection{Reconstruction Level Correlations}
 % \label{sub:reconcorrelations}
 
+\clearpage
 
-
-\begin{table}[h]
+\begin{table}[t]
 \setlength\tabcolsep{15pt}
 \footnotesize
 \centering
@@ -197,7 +197,7 @@ There are quite a few numbers listed throughout the tables. In order to facilita
 
 
 
-\begin{table}
+\begin{table}[b]
 \setlength\tabcolsep{15pt}
 \footnotesize
 \centering
@@ -221,7 +221,7 @@ There are quite a few numbers listed throughout the tables. In order to facilita
 \end{table}
 
 
-\begin{table}
+\begin{table}[t]
 \setlength\tabcolsep{15pt}
 \footnotesize
 \centering
@@ -245,7 +245,7 @@ There are quite a few numbers listed throughout the tables. In order to facilita
 \end{table}
 
 
-\begin{table}
+\begin{table}[b]
 \setlength\tabcolsep{15pt}
 \footnotesize
 \centering
@@ -272,22 +272,24 @@ There are quite a few numbers listed throughout the tables. In order to facilita
 
 
 \clearpage
-\subsection{Sigma Differences}
-
-% -maybe use the word pull instead of sigma here somehow?
-
-- moved table of results to introduction, make sure to reference it naturally
+\subsection{Result Deviations}
 
 
-Once the correlations between the different analyses and methods have been determined, the significance of the differences in results between those analyses can be determined. \tabref{tab:analysisRValues} gives the commonly blinded fitted \R values for the different datasets and different analyses along with their statistical errors. The $1\sigma$ allowed deviation between two analysis results is given by
+Of interest beyond the statistical correlations themselves are the deviations in the best-fit \R results presented in \tabref{tab:analysisRValues}. The $1\sigma$ allowed deviation between two analysis results is given by
 \begin{align}
-	\sigma_{\text{allowed}} = \sqrt{\sigma^{2}_{i} + \sigma^{2}_{j} - 2r_{ij}\sigma_{i}\sigma_{j}}
+	\sigma_{\text{allowed}} = \sqrt{\sigma^{2}_{i} + \sigma^{2}_{j} - 2r_{ij}\sigma_{i}\sigma_{j}},
 \end{align}
-where $\sigma_{i}$ and $\sigma_{j}$ are the errors of the two analyses, and $r_{ij}$ is the correlation coefficient between the two analyses. Using this equation and the provided correlation coefficients, the allowed differences between all of the analyses for the four datasets are determined. Tables~\ref{tab:60h_diff} through \ref{tab:EG_diff} display the allowed differences in ppb between the different analyses, as well as the number of $\sigma$s difference or `pull' after calculating the $\Delta R$s from \tabref{tab:analysisRValues}.  In general the deviations between the different analyses are spread around 0 with deviations rising into the two sigma range. Some specifics to note are that the Q-Method fits in the HK and 9d datasets are something like $1.35\sigma$ or so above the rest depending on the exact correlation, and the R-Method values are consistently below low the rest barring a few entries, up to around $2\sigma$ or so in some cases. In order to get a sense of the spread of pulls, all entries from the top-side of the diagonal were taken for each of the datasets and put into a histogram, as shown in \figref{fig:AllSigmas}. The resulting distribution while not perfect shows a nice symmetry around 0, with few entries close to $2\sigma$ or higher. This histogram provides some confidence that the differences are natural and to be expected.
+where $\sigma_{i}$ and $\sigma_{j}$ are the errors of the two analyses, and $r_{ij}$ is the correlation coefficient between them. Using this equation, the determined correlation coefficients, and the values in \tabref{tab:analysisRValues}, the allowed differences and subsequent deviations between all of the analyses for the four datasets were calculated. Tables~\ref{tab:60h_diff} through \ref{tab:EG_diff} display this information, with the allowed differences in ppb. In general the deviations between the different analyses are spread around 0 with a few deviations rising into the positive and negative $2\sigma$ range. Some specifics to note are that the Q-Method best-fit \R values in the HK and 9d datasets are something like $1.35\sigma$ or so above the rest depending on the exact correlation, and the R-Method best-fit \R values are consistently below the rest barring a few entries, up to around $2\sigma$ in some cases. The former is most likely statistical in nature, whereas the latter is most likely systematic, as the R-Method has been shown to be less susceptible to systematic effects \cite{phdthesis:2020Kinnaird}.
+
+In order to get a sense of the spread of pulls, all entries from the top-side of the table diagonals were taken for each of the datasets and put into a histogram, as shown in \figref{fig:AllSigmas}. The resulting distribution, while not a perfect Gaussian, shows a nice symmetry around 0 with only a few entries close to $2\sigma$ or higher\footnote{Note that correlation entries in the tables are themselves highly correlated, so a perfect Gaussian is not expected.}. This histogram provides some confidence that the observed differences in the fits to data are natural and to be expected. Lastly, the calculation of these allowed differences and associated deviations are purely statistical. It is expected that with systematic components included, the deviations would get smaller as the correlations would decrease and the errors on the \R values would increase.
 
 
-% -make sure I use the same notation for the correlation coefficients everywhere, r probably
-
+\begin{figure}
+\centering
+\includegraphics[width=0.65\textwidth]{AllSigmas}
+\caption{Pulls on \R for all datasets for the individual analysis comparisons. The entries from the top-right of the diagonal of Tables~\ref{tab:60h_diff} through \ref{tab:EG_diff} are taken and filled into this histogram. In general such a pull distribution should be a unit Gaussian, however entries from the same row or column will be correlated, so a perfect Gaussian is not expected. This is particularly apparent with the spike around $1.35\sigma$, which comes from some of the Q-Method correlations in the HK and 9d datasets, in both of which the Q-Method fits returned a greater \R-value than the rest of the methods. Similarly, a number of the entries at the high side of the distribution correspond to R-Method fits compared to the rest.}
+\label{fig:AllSigmas}
+\end{figure}
 
 
 
@@ -316,7 +318,7 @@ where $\sigma_{i}$ and $\sigma_{j}$ are the errors of the two analyses, and $r_{
 	UK Q   & 1.7692 $+0.23$ & 1.7731 $+0.14$ & 1.7710 $+0.56$ & 1.6581 $+0.59$ & 1.7583 $+0.33$ & 1.6580 $+0.34$ & 1.7456 $+0.18$ & 1.6580 $+0.44$ & 1.7665 $+0.26$ & 1.6632 $+0.47$ & 0.0000 $+0.00$  \\
   \bottomrule
 \end{tabularx}
-\caption[]{Differences in \R values for the 60h dataset between the different analyses. The top number is the allowed ppb difference in \R, $\sigma_{\text{allowed}}$, as calculated from the correlation coefficients and analysis errors. The bottom number is the number of sigmas difference, calculated as $\sigma_{\text{diff}} = (R_{\text{column}}-R_{\text{row}})/\sigma_{\text{allowed}}$.}
+\caption[]{Differences in results for the 60h dataset between the different analyses. The top number is the allowed ppb difference in \R, $\sigma_{\text{allowed}}$, as calculated from the correlation coefficients and analysis errors. The bottom number is the calculated deviation between analyses, calculated as $\sigma_{\text{dev}} = (R_{\text{column}}-R_{\text{row}})/\sigma_{\text{allowed}}$, where $R_{\text{column}}$ and $R_{\text{row}}$ come from \tabref{tab:analysisRValues} for the respective analyses.}
 \label{tab:60h_diff}
 \end{table}
 \end{landscape}
@@ -348,7 +350,7 @@ where $\sigma_{i}$ and $\sigma_{j}$ are the errors of the two analyses, and $r_{
 	UK Q   & 1.5421 $-1.36$ & 1.5454 $-1.46$ & 1.5470 $-1.46$ & 1.4443 $-1.38$ & 1.5328 $-1.34$ & 1.4438 $-1.40$ & 1.5251 $-1.40$ & 1.4439 $-1.44$ & 1.5365 $-1.34$ & 1.4472 $-1.48$ & 0.0000 $+0.00$  \\
   \bottomrule
 \end{tabularx}
-\caption[]{Differences in \R values for the HK dataset between the different analyses. The top number is the allowed ppb difference in \R, $\sigma_{\text{allowed}}$, as calculated from the correlation coefficients and analysis errors. The bottom number is the number of sigmas difference, calculated as $\sigma_{\text{diff}} = (R_{\text{column}}-R_{\text{row}})/\sigma_{\text{allowed}}$.}
+\caption[]{Differences in results for the HK dataset between the different analyses. The top number is the allowed ppb difference in \R, $\sigma_{\text{allowed}}$, as calculated from the correlation coefficients and analysis errors. The bottom number is the calculated deviation between analyses, calculated as $\sigma_{\text{dev}} = (R_{\text{column}}-R_{\text{row}})/\sigma_{\text{allowed}}$, where $R_{\text{column}}$ and $R_{\text{row}}$ come from \tabref{tab:analysisRValues} for the respective analyses.}
 \label{tab:HK_diff}
 \end{table}
 \end{landscape}
@@ -379,7 +381,7 @@ where $\sigma_{i}$ and $\sigma_{j}$ are the errors of the two analyses, and $r_{
 	UK Q   & 1.2432 $-1.32$ & 1.2487 $-1.32$ & 1.2334 $-1.41$ & 1.1522 $-1.11$ & 1.2327 $-1.31$ & 1.1483 $-1.13$ & 1.2332 $-1.31$ & 1.1532 $-1.14$ & 1.2417 $-1.30$ & 1.1581 $-1.26$ & 0.0000 $+0.00$  \\
   \bottomrule
 \end{tabularx}
-\caption[]{Differences in \R values for the 9d dataset between the different analyses. The top number is the allowed ppb difference in \R, $\sigma_{\text{allowed}}$, as calculated from the correlation coefficients and analysis errors. The bottom number is the number of sigmas difference, calculated as $\sigma_{\text{diff}} = (R_{\text{column}}-R_{\text{row}})/\sigma_{\text{allowed}}$.}
+\caption[]{Differences in results for the 9d dataset between the different analyses. The top number is the allowed ppb difference in \R, $\sigma_{\text{allowed}}$, as calculated from the correlation coefficients and analysis errors. The bottom number is the calculated deviation between analyses, calculated as $\sigma_{\text{dev}} = (R_{\text{column}}-R_{\text{row}})/\sigma_{\text{allowed}}$, where $R_{\text{column}}$ and $R_{\text{row}}$ come from \tabref{tab:analysisRValues} for the respective analyses.}
 \label{tab:9d_diff}
 \end{table}
 \end{landscape}
@@ -411,22 +413,11 @@ where $\sigma_{i}$ and $\sigma_{j}$ are the errors of the two analyses, and $r_{
 	UK Q   & 1.0990 $+0.26$ & 1.1029 $+0.20$ & 1.0972 $+0.25$ & 1.0387 $+0.39$ & 1.0960 $+0.25$ & 1.0406 $+0.31$ & 1.0964 $+0.10$ & 1.0437 $+0.25$ & 1.0977 $+0.30$ & 1.0411 $+0.28$ & 0.0000 $+0.00$  \\
   \bottomrule
 \end{tabularx}
-\caption[]{Differences in \R values for the EG dataset between the different analyses. The top number is the allowed ppb difference in \R, $\sigma_{\text{allowed}}$, as calculated from the correlation coefficients and analysis errors. The bottom number is the number of sigmas difference, calculated as $\sigma_{\text{diff}} = (R_{\text{column}}-R_{\text{row}})/\sigma_{\text{allowed}}$.}
+\caption[]{Differences in results for the EG dataset between the different analyses. The top number is the allowed ppb difference in \R, $\sigma_{\text{allowed}}$, as calculated from the correlation coefficients and analysis errors. The bottom number is the calculated deviation between analyses, calculated as $\sigma_{\text{dev}} = (R_{\text{column}}-R_{\text{row}})/\sigma_{\text{allowed}}$, where $R_{\text{column}}$ and $R_{\text{row}}$ come from \tabref{tab:analysisRValues} for the respective analyses.}
 \label{tab:EG_diff}
 \end{table}
 \end{landscape}
 
-
-
-
-
-
-\begin{figure}[]
-\centering
-\includegraphics[width=0.65\textwidth]{AllSigmas}
-\caption{Sigma diffs from all datasets for the individual analysis comparisons. Identical but oppposite entries from across the main diagonal are not included, as well as the entries for the diagonals themselves. The entries from the top-right of the diagonal are taken and filled into this histogram. In general such a pull distribution should be a unit Gaussian, however entries from the same row or column will be correlated, and are nevertheless included in this plot. This is particularly apparent with the spike around $1.35\sigma$, which comes from some of the Q-Method correlations in the HK and 9d datasets, in both of which the Q-Method fit returned a greater R-value than the rest of the fits. A number of the entries at the high side of the distribution correspond to R-Method fits compared to the rest. These pull the distributions mean to a value greater than 0.}
-\label{fig:AllSigmas}
-\end{figure}
 
 
 
