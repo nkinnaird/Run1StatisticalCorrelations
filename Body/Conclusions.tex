@@ -5,35 +5,27 @@
 \clearpage
 \section{Conclusions}
 
-- talk about the general point of this document, briefly highlight results, and mention what they could be used for
-	- Run 1 combination tests - specifically mention points by david even if I don't go into the details
-	- starting point for future combinations
 
-	
+Correlation coefficients were determined between analyses and methods for the different \Rone \wa analyzers and datasets, using a Monte Carlo with real data input. These correlation coefficients and variations of them were used in different approaches to the \wa combination, and associated results will be detailed in a forthcoming note by D. Sweigart \cite{CombinationMeeting}. These correlations and the Monte Carlo provide a starting point for any future combination effort of future analyses of Run~2 and beyond. While some correlation did exceed the conditions for the high-correlation regime, in general the correlations were very consistent across datasets and methods.
 
-
--differences between this MC and data, including some reminders
- - East vs West comparison was based on Aaron's counts
- - used Matteo's energy bin functions and others might be slightly different
- - different pileup methods, though the effect should be sub leading since it's the corrected spectrum that is important
- - pileup in Josh's stuff
- - systematic differences between analyses, talk about ratio method a little bit
- - Q method differences to be expected - somewhat reflected I think in the larger errors on the Q method coefficients
- - the VW randomization that I do in my analysis, leading to slightly larger errors, and presumably slightly different coefficients because of a different width
- - different randomization methods and number of seeds between different analyzers
-- all of this should in general decrease the correlations between the analyses
-
-- talk about the clipping of correlation coefficients, cite David's collab talk
-	- mention how a number of my coefficients are above this clipping threshold but not most of them
-	- the amount of clipping is usually around the sub percent level or less, could easily be explained by the above differences, though I'm still not sure if all the coefficients should be below the clipping threshold
+When comparing the Monte Carlo used to generate the pseudo-data to real data, there are a number of places where differences might arise from, and also places where the Monte Carlo could be improved:
+\begin{itemize}
+	\item{The \ROOT \texttt{TF2}s used to generate the data could use finer time and energy points with a different implementation, so that the hit generation wouldn't be as segmented, leading to some imperfect Q-Method fits.}
+	\item{There are systematic differences between analyses, both in how various systematics affect the analyses (eg. less effect in the R-Method), and how analyses correct and estimate the effects. The errors from the systematic effects are not included in the calculation of the correlations here.}
+	\item{Different analyses use different pileup methods. Including the effect of pileup should be sub-leading since it is the corrected time spectrum that is of most importance, and energy thresholds change the counts in the time histogram more so, however it is a difference. It would be quite an undertaking however to implement multiple pileup methods into the Monte Carlo, and probably not worth the effort.}
+	\item{The Q-Method is a different analysis type completely, and it's differences won't be adequately modeled here. Since the correlations are so much less than the other datasets it's not so much of a concern, but it should be kept in mind. The larger errors on the Q-Method correlations in part display this.}
+	\item{The \RE vs \RW comparison was based solely on clusters from a single \RW analysis, A. Fienbergs. The comparison was also made on non-pileup corrected counts, which might have some small effect.}
+	\item{Energy bin functions for \RW were provided by a single \RW analyzer, M. Sorbara.}
+	\item{The analyses randomize out the fast rotation by randomizing times at the cyclotron period, and this effect is not included in the Monte Carlo. Different analyses then use different numbers of random seeds, and some analyzers quote mean \R values from many random seeds while others quote the closest \R value to the mean. This would increase the amount of expected statistical deviation slightly. Adding in a number of random seeds equal for every analyzer would make the computation time needed increase drastically, and probably wouldn't be feasible.}
+	\item{The BU analysis effort randomized out the vertical waist effect, and this process was not included. This increases the error on the best-fit \R values by \SIrange{10}{30}{ppb} depending on dataset, and would result in slight different correlation coefficients.}
+	\item{The \texttt{TRandomMixMax} randomization class may be insufficient as shown by the non-flat R-Method p value distribution. A better randomization engine may be used, however then there is the downside that the computation time increases significantly.}
+\end{itemize}
 
 
-- talk about things that could be improved
-	- better randomization, potential fix to imperfect R method fits, though it's unclear, and the better randomization might take a long time
-	- finer time and energy points, fixes some imperfect fits in the Q method
+
+All of this should in general decrease the correlations between the analyses. With improvements to these points, the correlations could be improved, if necessary depending on the final combination approach used...
 
 
-- look over my stats corrs powerpoint to see if there is anything in there that should be included here
+- then some final words to end off in some way
 
 
-% - don't do pileup, the effect should be a lot smaller than the energy threshold changes between analyses after pileup subtraction, it would be a major effort to somehow put in different pileup cases, etc.
